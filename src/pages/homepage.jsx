@@ -1,3 +1,4 @@
+import Carousel from "../components/carousel";
 import NavigationBar from "../components/navbar";
 import Table from "../components/table";
 import TableBody from "../components/tableBody";
@@ -5,11 +6,11 @@ import TableBody from "../components/tableBody";
 export default function HomePage() {
   return (
     <div>
-          <NavigationBar />
-          <div>
-              Insert Gallery / Banner here
-          </div>
-      <div>
+      <NavigationBar />
+      <div className="md:container md:mx-auto">
+        <Carousel />
+      </div>
+      <div className="md:container md:mx-auto">
         <Table
           Header1="Event"
           Header2="Date"
