@@ -2,15 +2,16 @@ import Carousel from "../components/carousel";
 import NavigationBar from "../components/navbar";
 import Table from "../components/table";
 import TableBody from "../components/tableBody";
+import Footer from "../components/footer";
 
 export default function HomePage() {
   return (
-    <div>
-      <NavigationBar />
-      <div className="md:container md:mx-auto">
+    <div className="flex flex-col h-screen justify-between">
+      <header className="h-10">
+        <NavigationBar />
+      </header>
+      <main className="mb-auto h-10 md:container md:mx-auto">
         <Carousel />
-      </div>
-      <div className="md:container md:mx-auto">
         <Table
           Header1="Event"
           Header2="Date"
@@ -27,7 +28,9 @@ export default function HomePage() {
             />
           }
         />
-      </div>
+      </main>
+
+      <footer className="h-10"><Footer /></footer>
     </div>
   );
 }
