@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+### Technical Requirements
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Your app must:
 
-## Available Scripts
+- **Build a full-stack application** by making your own backend and your own front-end.
+- **Be a complete product**, which means that it is usable from head-to-tail, in the environment it is meant for.
+- **Implement thoughtful user stories** that are significant enough to help you know which features to build and which to scrap
+- **Be accessible online**
 
-In the project directory, you can run:
+Your app should:
 
-### `npm start`
+- **Use a database** or way to store your data, whether that's one we've covered in class or one you want to learn
+- **Have an interactive front-end**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+_Note_: front-end does **not** mean javascript in the browser. Front-end can also mean HTML and CSS.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Necessary Deliverables
 
-### `npm test`
+- A **working app**, hosted somewhere on the internet
+- A **link to your hosted working app** in the URL section of your Github repo
+- A **git repository hosted on Github**, with a link to your hosted project, and frequent commits dating back to the very beginning of the project
+- **A `README.md` file** with:
+  - An embedded screenshot of the app
+  - Explanations of the **technologies** used
+  - A couple paragraphs about the **general approach you took**
+  - **Installation instructions** for any dependencies
+  - Link to your **user stories** – who are your users, what do they want, and why?
+  - Link to your **wireframes** – sketches of major views / interfaces in your application
+  - Descriptions of any **unsolved problems** or **major hurdles** you had to overcome
+- A presentation with slides of 3 minutes or less demoing your app
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Presentation
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Presentation day will consist of a short slide deck introducing the problem space of the project and how the app solves a problem for a user. Each person/team will have up to 3 minutes to present and demp their work. Q & A will follow.
