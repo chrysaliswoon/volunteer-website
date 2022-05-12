@@ -3,6 +3,10 @@ import Error from "./components/error";
 import * as React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import EventPage from "./pages/events";
+import ContactPage from "./pages/contact";
+import AboutPage from "./pages/about";
+import LoginPage from "./pages/login";
+import RegisterPage from "./pages/register";
 
 export default function App() {
   return (
@@ -11,6 +15,10 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={<Error />} />
         <Route path="events" element={<EventPage />} />
+        <Route path="about" element={<AboutPage />} />
+        <Route path="contact" element={<ContactPage />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="register" element={<RegisterPage />} />
       </Routes>
     </div>
   );

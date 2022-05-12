@@ -9,7 +9,7 @@ export default function EventPage() {
         <header className="h-10">
           <NavigationBar />
         </header>
-        <main className="mb-auto md:container md:mx-auto">
+        <main className="md:container md:mx-auto">
           <Table
             Header1="Event"
             Header2="Date"
