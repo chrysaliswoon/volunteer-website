@@ -30,7 +30,9 @@ export default function HomePage() {
         />
       </main>
 
-      <footer className="h-10"><Footer /></footer>
+      <footer className="h-10">
+        <Footer />
+      </footer>
     </div>
   );
 }

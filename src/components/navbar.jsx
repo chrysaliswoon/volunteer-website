@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router";
+
 export default function NavigationBar() {
+  let navigate = useNavigate();
+
   return (
     <nav className="bg-white shadow-lg">
       <div className="max-w-6xl mx-auto px-4">
@@ -16,13 +20,13 @@ export default function NavigationBar() {
             {/* Primary Navbar items  */}
             <div className="hidden md:flex items-center space-x-1">
               <a
-                href=""
+                href="/"
                 className="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold "
               >
                 Home
               </a>
               <a
-                href=""
+                href="events"
                 className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
               >
                 Events
