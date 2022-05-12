@@ -1,6 +1,6 @@
+import logo from "../assets/logo.png"
 
 export default function NavigationBar() {
-
   return (
     <nav className="bg-white shadow-lg">
       <div className="max-w-6xl mx-auto px-4">
@@ -9,7 +9,7 @@ export default function NavigationBar() {
             <div>
               {/* Website Logo  */}
               <a href="/" className="flex items-center py-4 px-2">
-                <img src="logo.png" alt="Logo" className="h-8 w-8 mr-2" />
+                <img src={logo} alt="Logo" className="h-8 w-8 mr-2" />
                 <span className="font-semibold text-gray-500 text-lg">
                   Zhenghua Youth Network
                 </span>

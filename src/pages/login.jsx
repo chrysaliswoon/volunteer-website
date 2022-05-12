@@ -1,5 +1,6 @@
 import NavigationBar from "../components/navbar";
 import Footer from "../components/footer";
+import LoginForm from "../components/forms/login";
 
 export default function LoginPage() {
     return (
@@ -8,7 +9,7 @@ export default function LoginPage() {
           <NavigationBar />
         </header>
         <main className="md:container md:mx-auto">
-          <h1>Insert Login form here</h1>
+          <LoginForm />
         </main>
 
         <footer className="h-10">
