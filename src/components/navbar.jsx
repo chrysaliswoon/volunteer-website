@@ -1,7 +1,5 @@
-import { useNavigate } from "react-router";
 
 export default function NavigationBar() {
-  let navigate = useNavigate();
 
   return (
     <nav className="bg-white shadow-lg">
@@ -32,13 +30,13 @@ export default function NavigationBar() {
                 Events
               </a>
               <a
-                href=""
+                href="about"
                 className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
               >
                 About
               </a>
               <a
-                href=""
+                href="contact"
                 className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
               >
                 Contact Us
@@ -48,13 +46,13 @@ export default function NavigationBar() {
           {/* Secondary Navbar items */}
           <div className="hidden md:flex items-center space-x-3 ">
             <a
-              href=""
+              href="login"
               className="py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300"
             >
               Log In
             </a>
             <a
-              href=""
+              href="register"
               className="py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300"
             >
               Sign Up
