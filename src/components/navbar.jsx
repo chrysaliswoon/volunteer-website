@@ -8,7 +8,7 @@ export default function NavigationBar() {
           <div className="flex space-x-7">
             <div>
               {/* Website Logo  */}
-              <a href="#" className="flex items-center py-4 px-2">
+              <a href="/" className="flex items-center py-4 px-2">
                 <img src="logo.png" alt="Logo" className="h-8 w-8 mr-2" />
                 <span className="font-semibold text-gray-500 text-lg">
                   Zhenghua Youth Network

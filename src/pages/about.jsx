@@ -1,6 +1,4 @@
 import NavigationBar from "../components/navbar";
-import Table from "../components/table";
-import TableBody from "../components/tableBody";
 import Footer from "../components/footer";
 
 export default function AboutPage() {

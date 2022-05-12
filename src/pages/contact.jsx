@@ -1,7 +1,6 @@
 import NavigationBar from "../components/navbar";
-import Table from "../components/table";
-import TableBody from "../components/tableBody";
 import Footer from "../components/footer";
+import ContactForm from "../components/forms/contact";
 
 export default function ContactPage() {
     return (
@@ -10,7 +9,10 @@ export default function ContactPage() {
           <NavigationBar />
         </header>
         <main className="md:container md:mx-auto">
-          <h1>This contains contact form</h1>
+          <div>
+            <h1 className="text-xl py-10 items-center">Contact Us</h1>
+            <ContactForm />
+          </div>
         </main>
 
         <footer className="h-10">
