@@ -1,6 +1,6 @@
 import React from "react";
-import loginImg from "../../assets/login.jpg";
-import logo from "../../assets/logo.png";
+import loginImg from "../../assets/images/login.jpg";
+import logo from "../../assets/images/logo.png";
 import Button from "../button";
 import { UserCircleIcon, LockClosedIcon } from "@heroicons/react/solid";
 import { Link, useNavigate } from "react-router-dom";
