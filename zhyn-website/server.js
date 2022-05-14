@@ -7,6 +7,8 @@ const PORT = process.env.PORT
 
 //? Middleware
 app.use(express.json());
+app.use(express.static("./client/build"))
+
 
 //? Routes
 app.get("/", (req, res) => {
