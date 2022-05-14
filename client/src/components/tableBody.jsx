@@ -18,7 +18,7 @@ export default function TableBody({
       <td className="px-6 py-4">{EventLocation}</td>
       <td className="px-6 py-4 text-right">
         <a
-          href="#"
+          href="www.test.com"
           className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
         >
           {EventButton}

@@ -3,20 +3,20 @@ import loginImg from "../../assets/images/login.jpg";
 import logo from "../../assets/images/logo.png";
 import Button from "../button";
 import { UserCircleIcon, LockClosedIcon } from "@heroicons/react/solid";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 
 export default function LoginForm() {
   const {
     register,
-    handleSubmit,
-    watch,
-    formState: { errors },
+    // handleSubmit,
+    // watch,
+    // formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
-  }; // your form submit function which will invoke after successful validation
+  // const onSubmit = (data) => {
+  //   console.log(data);
+  // }; // your form submit function which will invoke after successful validation
 
   // console.log(watch("example")); // you can watch individual input by pass the name of the input
   return (
@@ -64,7 +64,7 @@ export default function LoginForm() {
               <input className="mr-2" type="checkbox" />
               Remember Me
             </p>
-            <a href="#">Forgot Password</a>
+            <a href="www.test.com">Forgot Password</a>
           </div>
           <Button
             css="w-full my-5 py-2 bg-teal-500 shadow-lg shadow-teal-500/50"

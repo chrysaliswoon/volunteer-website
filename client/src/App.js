@@ -1,7 +1,7 @@
 import HomePage from "./pages/homepage";
 import Error from "./components/error";
 import * as React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import EventPage from "./pages/events";
 import ContactPage from "./pages/contact";
 import AboutPage from "./pages/about";
