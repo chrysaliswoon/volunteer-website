@@ -8,9 +8,11 @@ export default function LoginPage() {
         <header className="h-10">
           <NavigationBar />
         </header>
-        <main className="md:container md:mx-auto">
-          <LoginForm />
-        </main>
+        <div>
+          <main className="md:container md:mx-auto">
+            <LoginForm />
+          </main>
+        </div>
 
         <footer className="h-10">
           <Footer />

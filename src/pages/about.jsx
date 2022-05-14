@@ -8,6 +8,7 @@ export default function AboutPage() {
         <header className="h-10">
           <NavigationBar />
         </header>
+        <div className="justify-between">
         <main className="md:container md:mx-auto">
           <img className="w-full h-full object-cover" src={volunteerImg} alt="" />
           <h1 className="text-xl py-10 items-center">About Us</h1>
@@ -21,7 +22,7 @@ export default function AboutPage() {
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
         </main>
-
+        </div>
         <footer className="h-10">
           <Footer />
         </footer>
