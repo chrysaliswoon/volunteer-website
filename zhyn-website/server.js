@@ -11,6 +11,10 @@ app.use(express.static("./client/build"))
 
 
 //? Routes
+app.get("/*", (req, res) => {
+    res.sendFile("./client/build/index.html")
+})
+
 app.get("/", (req, res) => {
     res.send("Working")
 })
