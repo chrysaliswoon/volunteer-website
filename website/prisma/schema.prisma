@@ -6,67 +6,41 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
   shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
-// model VolunteerRoles {
-//   id      String   @id @unique @default(cuid())
-//   volunteerId Int?     @unique
-//   member      Boolean? @default(true)
-//   committee   Boolean?
-// }
-
-// model Volunteer {
-//   id     Int     @id @unique @default(autoincrement())
-//   volunteerName   String
-//   email           String  @unique
-//   password        String
-//   volunteerStatus Boolean @default(true)
-// }
-
-
-// model Member {
-//   id          String @id @unique @default(cuid())
-//   roleId            Int?   @unique
-//   eventsVolunteered Int?
-// }
-
-// model Committee {
-//   id            String  @id @unique @default(cuid())
-//   roleId        Int?    @unique
-//   volunteerId   Int?    @unique
-//   committeeName String?
-//   eventsCreated Int?
-// }
-
 
 model Events {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  eventTitle     String   @db.VarChar(255)
-  eventDescription     String   
+  id                 Int       @id @default(autoincrement())
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+  eventTitle         String    @db.VarChar(255)
+  eventDescription   String
   eventStart         DateTime
   eventEnd           DateTime
   volunteersRequired Int
-  eventStatus        Boolean  @default(true)
-  published Boolean  @default(false)
-  creator    Volunteer     @relation(fields: [creatorId], references: [id])
-  creatorId  Int
+  eventStatus        Boolean   @default(true)
+  published          Boolean   @default(false)
+  creator            Volunteer @relation(fields: [creatorId], references: [id])
+  creatorId          Int
 }
 
 model Profile {
-  id     Int     @id @default(autoincrement())
-  bio    String?
-  volunteer   Volunteer    @relation(fields: [volunteerId], references: [id])
-  volunteerId Int     @unique
+  id              Int       @id @default(autoincrement())
+  bio             String?
+  member          Boolean?  @default(true)
+  committee       Boolean?
+  volunteerStatus Boolean   @default(true)
+  volunteer       Volunteer @relation(fields: [volunteerId], references: [id])
+  volunteerId     Int       @unique
 }
 
 model Volunteer {
-  id      Int      @id @default(autoincrement())
-  email   String   @unique
-  name    String?
+  id       Int      @id @default(autoincrement())
+  email    String   @unique
+  password String
+  name     String?
   events   Events[]
-  profile Profile?
+  profile  Profile?
 }
