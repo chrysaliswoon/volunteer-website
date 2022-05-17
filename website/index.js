@@ -3,26 +3,15 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 async function main() {
-  await prisma.user.create({
+  await prisma.volunteer.create({
     data: {
-      name: "Alice",
-      email: "alice@prisma.io",
-      posts: {
-        create: { title: "Hello World" },
-      },
+      name: "Delan",
+      email: "delan@prisma.io",
       profile: {
-        create: { bio: "I like turtles" },
+        create: { bio: "I love sushi" },
       },
     },
   });
-
-  const allUsers = await prisma.user.findMany({
-    include: {
-      posts: true,
-      profile: true,
-    },
-  });
-  console.dir(allUsers, { depth: null });
 }
 
 main()
