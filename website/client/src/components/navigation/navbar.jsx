@@ -1,6 +1,12 @@
-import logo from "../../assets/images/logo.png"
+import logo from "../../assets/images/logo.png";
+import PrimaryNavBarItems from "../../data/priNavItems";
 
-export default function NavigationBar() {
+export default function NavigationBar({
+  primaryNavItems,
+  primaryNavCSS,
+  secondaryNavItems,
+  secondaryNavCSS,
+}) {
   return (
     <nav className="bg-white shadow-lg">
       <div className="max-w-6xl mx-auto px-4">
@@ -16,54 +22,10 @@ export default function NavigationBar() {
               </a>
             </div>
             {/* Primary Navbar items  */}
-            <div className="hidden md:flex items-center space-x-1">
-              <a
-                href="/"
-                className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
-              >
-                Home
-              </a>
-              <a
-                href="events"
-                className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
-              >
-                Events
-              </a>
-              <a
-                href="about"
-                className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
-              >
-                About
-              </a>
-              <a
-                href="contact"
-                className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
-              >
-                Contact Us
-              </a>
-              <a
-                href="dashboard"
-                className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
-              >
-                Dashboard
-              </a>
-            </div>
+            <div className={primaryNavCSS}>{primaryNavItems}</div>
           </div>
           {/* Secondary Navbar items */}
-          <div className="hidden md:flex items-center space-x-3 ">
-            <a
-              href="login"
-              className="py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300"
-            >
-              Log In
-            </a>
-            <a
-              href="register"
-              className="py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300"
-            >
-              Sign Up
-            </a>
-          </div>
+          <div className={secondaryNavCSS}>{secondaryNavItems}</div>
           {/* Mobile menu button  */}
           <div className="md:hidden flex items-center">
             <button className="outline-none mobile-menu-button">
@@ -87,44 +49,15 @@ export default function NavigationBar() {
       <div className="hidden mobile-menu">
         <ul className="">
           <li className="active">
-            <a
-              href="index.html"
-              className="block text-sm px-2 py-4 text-white bg-green-500 font-semibold"
-            >
-              Home
-            </a>
-          </li>
-          <li>
-            <a
-              href="#services"
-              className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300"
-            >
-              Services
-            </a>
-          </li>
-          <li>
-            <a
-              href="#about"
-              className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300"
-            >
-              About
-            </a>
-          </li>
-          <li>
-            <a
-              href="#contact"
-              className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300"
-            >
-              Contact Us
-            </a>
-          </li>
-          <li>
-            <a
-              href="#dashboard"
-              className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300"
-            >
-              Dashboard
-            </a>
+            {PrimaryNavBarItems.map((items, index) => (
+              <a
+                key={index}
+                href={items.link}
+                className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+              >
+                {items.alt}
+              </a>
+            ))}
           </li>
         </ul>
       </div>
