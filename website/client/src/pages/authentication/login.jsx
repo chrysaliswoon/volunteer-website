@@ -1,8 +1,8 @@
-import NavigationBar from "../components/navigation/navbar";
-import Footer from "../components/navigation/footer";
-import LoginForm from "../components/forms/login";
-import PrimaryItems from "../components/navigation/navbarPrimary";
-import SecondaryItems from "../components/navigation/navbarSecondary";
+import NavigationBar from "../../components/navigation/navbar";
+import Footer from "../../components/navigation/footer";
+import LoginForm from "../../components/forms/login";
+import PrimaryItems from "../../components/navigation/navbarPrimary";
+import SecondaryItems from "../../components/navigation/navbarSecondary";
 
 export default function LoginPage() {
   return (

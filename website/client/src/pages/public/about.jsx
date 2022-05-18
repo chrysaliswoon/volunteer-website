@@ -1,8 +1,8 @@
-import NavigationBar from "../components/navigation/navbar";
-import Footer from "../components/navigation/footer";
-import volunteerImg from "../assets/images/volunteer.jpg"
-import PrimaryItems from "../components/navigation/navbarPrimary";
-import SecondaryItems from "../components/navigation/navbarSecondary";
+import NavigationBar from "../../components/navigation/navbar";
+import Footer from "../../components/navigation/footer";
+import volunteerImg from "../../assets/images/volunteer.jpg"
+import PrimaryItems from "../../components/navigation/navbarPrimary";
+import SecondaryItems from "../../components/navigation/navbarSecondary";
 
 export default function AboutPage() {
     return (

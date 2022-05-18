@@ -18,7 +18,8 @@ export default function Dashboard() {
         <SideNavigation items={SideNavItems} />
       </header>
       <main className="md:container md:mx-auto">
-        <div></div>
+        <div>
+        </div>
       </main>
 
       <footer className="h-10">

@@ -1,8 +1,8 @@
-import NavigationBar from "../components/navigation/navbar";
-import Footer from "../components/navigation/footer";
-import ContactForm from "../components/forms/contact";
-import PrimaryItems from "../components/navigation/navbarPrimary";
-import SecondaryItems from "../components/navigation/navbarSecondary";
+import NavigationBar from "../../components/navigation/navbar";
+import Footer from "../../components/navigation/footer";
+import ContactForm from "../../components/forms/contact";
+import PrimaryItems from "../../components/navigation/navbarPrimary";
+import SecondaryItems from "../../components/navigation/navbarSecondary";
 
 export default function ContactPage() {
     return (

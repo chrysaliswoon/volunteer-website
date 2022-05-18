@@ -1,8 +1,8 @@
-import NavigationBar from "../components/navigation/navbar";
-import Footer from "../components/navigation/footer";
-import RegisterForm from "../components/forms/register";
-import PrimaryItems from "../components/navigation/navbarPrimary";
-import SecondaryItems from "../components/navigation/navbarSecondary";
+import Footer from "../../components/navigation/footer";
+import RegisterForm from "../../components/forms/register";
+import PrimaryItems from "../../components/navigation/navbarPrimary";
+import SecondaryItems from "../../components/navigation/navbarSecondary";
+import NavigationBar from "../../components/navigation/navbar";
 
 export default function RegisterPage() {
   return (

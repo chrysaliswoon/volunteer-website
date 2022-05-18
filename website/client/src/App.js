@@ -1,12 +1,12 @@
-import HomePage from "./pages/homepage";
+import HomePage from "./pages/public/homepage";
 import Error from "./pages/error";
 import * as React from "react";
 import { Routes, Route } from "react-router-dom";
-import EventPage from "./pages/events";
-import ContactPage from "./pages/contact";
-import AboutPage from "./pages/about";
-import LoginPage from "./pages/login";
-import RegisterPage from "./pages/register";
+import EventPage from "./pages/public/events";
+import ContactPage from "./pages/public/contact";
+import AboutPage from "./pages/public/about";
+import LoginPage from "./pages/authentication/login";
+import RegisterPage from "./pages/authentication/register";
 import Dashboard from "./pages/dashboard";
 
 export default function App() {

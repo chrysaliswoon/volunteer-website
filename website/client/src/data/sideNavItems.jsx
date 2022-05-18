@@ -1,10 +1,10 @@
 const SideNavBarItems = [
-  { link: "dashboard", alt: "Dashboard" },
-  { link: "orders", alt: "Orders" },
-  { link: "marketing", alt: "Marketing" },
-  { link: "reports", alt: "Reports" },
-  { link: "finance", alt: "Finance" },
-  { link: "settings", alt: "Settings" },
+  { link: "dashboard", alt: "Create an Event" },
+  { link: "dashboard/orders", alt: "Orders" },
+  { link: "dashboard/marketing", alt: "Marketing" },
+  { link: "dashboard/reports", alt: "Reports" },
+  { link: "dashboard/finance", alt: "Finance" },
+  { link: "dashboard/settings", alt: "Settings" },
 ];
 
 export default SideNavBarItems;

@@ -1,10 +1,10 @@
-import Carousel from "../components/carousel/gallery";
-import NavigationBar from "../components/navigation/navbar";
-import Table from "../components/table/table";
-import TableBody from "../components/table/tableBody";
-import Footer from "../components/navigation/footer";
-import PrimaryItems from "../components/navigation/navbarPrimary";
-import SecondaryItems from "../components/navigation/navbarSecondary";
+import Carousel from "../../components/carousel/gallery";
+import NavigationBar from "../../components/navigation/navbar";
+import Table from "../../components/table/table";
+import TableBody from "../../components/table/tableBody";
+import Footer from "../../components/navigation/footer";
+import PrimaryItems from "../../components/navigation/navbarPrimary";
+import SecondaryItems from "../../components/navigation/navbarSecondary";
 
 export default function HomePage() {
   return (
