@@ -1,4 +1,4 @@
-import logo from "../assets/images/logo.png"
+import logo from "../../assets/images/logo.png"
 
 export default function NavigationBar() {
   return (
@@ -19,7 +19,7 @@ export default function NavigationBar() {
             <div className="hidden md:flex items-center space-x-1">
               <a
                 href="/"
-                className="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold "
+                className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
               >
                 Home
               </a>
@@ -40,6 +40,12 @@ export default function NavigationBar() {
                 className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
               >
                 Contact Us
+              </a>
+              <a
+                href="dashboard"
+                className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+              >
+                Dashboard
               </a>
             </div>
           </div>
@@ -110,6 +116,14 @@ export default function NavigationBar() {
               className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300"
             >
               Contact Us
+            </a>
+          </li>
+          <li>
+            <a
+              href="#dashboard"
+              className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300"
+            >
+              Dashboard
             </a>
           </li>
         </ul>

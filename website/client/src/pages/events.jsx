@@ -1,7 +1,7 @@
-import NavigationBar from "../components/navbar";
-import Table from "../components/table";
-import TableBody from "../components/tableBody";
-import Footer from "../components/footer";
+import NavigationBar from "../components/navigation/navbar";
+import Table from "../components/table/table";
+import TableBody from "../components/table/tableBody";
+import Footer from "../components/navigation/footer";
 
 export default function EventPage() {
     return (

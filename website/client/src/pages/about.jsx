@@ -1,5 +1,5 @@
-import NavigationBar from "../components/navbar";
-import Footer from "../components/footer";
+import NavigationBar from "../components/navigation/navbar";
+import Footer from "../components/navigation/footer";
 import volunteerImg from "../assets/images/volunteer.jpg"
 
 export default function AboutPage() {

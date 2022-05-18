@@ -1,12 +1,11 @@
 import React from "react";
-import loginImg from "../../assets/images/login.jpg";
 import logo from "../../assets/images/logo.png";
 import Button from "../button/button";
 import { UserCircleIcon, LockClosedIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
-export default function LoginForm() {
+export default function RegisterForm() {
   const {
     register,
     // handleSubmit,
@@ -26,7 +25,20 @@ export default function LoginForm() {
       method="get"
     >
       <img className="w-20 mx-auto pb-5" src={logo} alt="logo" />
-      <h2 className="text-4xl text-white font-bold text-center">SIGN IN</h2>
+      <h2 className="text-4xl text-white font-bold text-center">REGISTER</h2>
+      <div className="flex flex-col text-gray-400 py-2">
+        <UserCircleIcon className="h-5 w-5 text-gray-500" />
+        <input
+          className="rounded-1g bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:gray-800 focus:outline-none"
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Name"
+          {...register("name", {
+            required: true,
+          })}
+        ></input>
+      </div>
       <div className="flex flex-col text-gray-400 py-2">
         <UserCircleIcon className="h-5 w-5 text-gray-500" />
         <input
@@ -53,12 +65,18 @@ export default function LoginForm() {
           })}
         ></input>
       </div>
-      <div className="flex justify-between text-gray-400 py-2">
-        <p className="flex items-center">
-          <input className="mr-2" type="checkbox" />
-          Remember Me
-        </p>
-        <a href="www.test.com">Forgot Password</a>
+      <div className="flex flex-col text-gray-400 py-2">
+        <LockClosedIcon className="h-5 w-5 text-gray-500" />
+        <input
+          className="rounded-1g bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:gray-800 focus:outline-none"
+          type="password"
+          name="password"
+          id="confirmPassword"
+          placeholder="Confirm Password"
+          {...register("confirmPassword", {
+            required: true,
+          })}
+        ></input>
       </div>
       <Button
         css="w-full my-5 py-2 bg-teal-500 shadow-lg shadow-teal-500/50"
@@ -68,8 +86,8 @@ export default function LoginForm() {
         description="Sign In"
       />
       <nav>
-        <Link to="/register" className="flex flex-col text-gray-400 py-2">
-          New? Register here
+        <Link to="/login" className="flex flex-col text-gray-400 py-2">
+          Registered? Login here
         </Link>
       </nav>
     </form>

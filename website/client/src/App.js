@@ -1,5 +1,5 @@
 import HomePage from "./pages/homepage";
-import Error from "./components/error";
+import Error from "./pages/error";
 import * as React from "react";
 import { Routes, Route } from "react-router-dom";
 import EventPage from "./pages/events";
@@ -7,6 +7,7 @@ import ContactPage from "./pages/contact";
 import AboutPage from "./pages/about";
 import LoginPage from "./pages/login";
 import RegisterPage from "./pages/register";
+import Dashboard from "./pages/dashboard";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="contact" element={<ContactPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="register" element={<RegisterPage />} />
+        <Route path="dashboard" element={<Dashboard />} />
       </Routes>
     </div>
   );
