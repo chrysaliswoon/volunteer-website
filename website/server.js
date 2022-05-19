@@ -17,9 +17,9 @@ const path = require("path");
 
 //? Middleware
 app.use(bodyParser.json()); // Parse the JSON body from the HTTP request
-app.use("/login", userLogin);
-app.use("/register", userRegister);
-app.use(express.static("../build"));
+app.use("/api/login", userLogin);
+app.use("/api/register", userRegister);
+app.use(express.static("./client/build"));
 
 //? Routes
 app.get("/*", (req, res) => {
