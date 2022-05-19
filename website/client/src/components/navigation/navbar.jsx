@@ -1,4 +1,4 @@
-import logo from "../../assets/images/logo.png";
+// import logo from "../../assets/images/logo.png"
 import PrimaryNavBarItems from "../../data/priNavItems";
 
 export default function NavigationBar({
@@ -15,7 +15,7 @@ export default function NavigationBar({
             <div>
               {/* Website Logo  */}
               <a href="/" className="flex items-center py-4 px-2">
-                <img src={logo} alt="Logo" className="h-8 w-8 mr-2" />
+                {/* <img src={logo} alt="Logo" className="h-8 w-8 mr-2" /> */}
                 <span className="font-semibold text-gray-500 text-lg">
                   Zhenghua Youth Network
                 </span>

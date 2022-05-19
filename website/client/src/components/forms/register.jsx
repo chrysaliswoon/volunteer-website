@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../../assets/images/logo.png";
 import Button from "../button/button";
 import { UserCircleIcon, LockClosedIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
@@ -24,7 +23,6 @@ export default function RegisterForm() {
       id="login"
       method="get"
     >
-      <img className="w-20 mx-auto pb-5" src={logo} alt="logo" />
       <h2 className="text-4xl text-white font-bold text-center">REGISTER</h2>
       <div className="flex flex-col text-gray-400 py-2">
         <UserCircleIcon className="h-5 w-5 text-gray-500" />
