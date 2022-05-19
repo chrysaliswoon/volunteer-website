@@ -4,6 +4,7 @@ import PrimaryItems from "../components/navigation/navbarPrimary";
 import SecondaryItems from "../components/navigation/navbarSecondary";
 import SideNavigation from "../components/navigation/sidenav";
 import SideNavItems from "../components/navigation/sidebarItems";
+import EventForm from "../components/forms/event";
 
 export default function Dashboard() {
   return (
@@ -15,14 +16,25 @@ export default function Dashboard() {
           secondaryNavItems={SecondaryItems}
           secondaryNavCSS="invisible"
         />
-        <SideNavigation items={SideNavItems} />
+        <div className="min-h-screen flex flex-row bg-gray-300">
+          <SideNavigation items={SideNavItems} />
+          <div className="px-10 py-10 items-center justify-center">
+            <h1 className="text-xl">Basic Info</h1>
+            <p>
+              Create a title for your event and add details about the event
+              which makes it unique and interesting
+            </p>
+            <div className="py-10">
+              <EventForm />
+            </div>
+          </div>
+        </div>
       </header>
       <main className="md:container md:mx-auto">
-        <div>
-        </div>
+        <div></div>
       </main>
 
-      <footer className="h-10">
+      <footer className="h-0">
         <Footer />
       </footer>
     </div>

@@ -1,23 +1,20 @@
-require("dotenv").config();
-require("@prisma/client");
+const { PrismaClient } = require("@prisma/client");
+const prisma = new PrismaClient();
 
-const express = require("express");
-const app = express();
-const PORT = process.env.PORT;
-const route = require("./routes");
-const bodyParser = require("body-parser");
-const multer = require("multer");
+async function main() {
+  await prisma.volunteer.create({
+    data: {
+      name: "Alice",
+      email: "alice@prisma.io",
+      password: "abc123",
+    },
+  });
+}
 
-//? Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(express.json());
-app.use(express.static("./client/build"));
-
-//? Redirect to routes/index.js
-app.use('/', route);
-
-
-app.listen(PORT, () => {
-  console.log(`Listening on Port ${PORT}`);
-});
+main()
+  .catch((e) => {
+    throw e;
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });
