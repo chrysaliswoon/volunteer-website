@@ -20,7 +20,7 @@ model Events {
   eventStart         DateTime
   eventEnd           DateTime
   volunteersRequired Int
-  eventStatus        Boolean   @default(true)
+  eventStatus        String    @db.VarChar(255)
   published          Boolean   @default(false)
   creator            Volunteer @relation(fields: [creatorId], references: [id])
   creatorId          Int
@@ -29,8 +29,8 @@ model Events {
 model Profile {
   id              Int       @id @default(autoincrement())
   bio             String?
-  member          Boolean?  @default(true)
-  committee       Boolean?
+  member          String    @db.VarChar(255)
+  committee       String    @db.VarChar(255)
   volunteerStatus Boolean   @default(true)
   volunteer       Volunteer @relation(fields: [volunteerId], references: [id])
   volunteerId     Int       @unique

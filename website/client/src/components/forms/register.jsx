@@ -1,95 +1,56 @@
-import React from "react";
-import logo from "../../assets/images/logo.png";
-import Button from "../button/button";
-import { UserCircleIcon, LockClosedIcon } from "@heroicons/react/solid";
-import { Link } from "react-router-dom";
+import e from "express";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 export default function RegisterForm() {
-  const {
-    register,
-    // handleSubmit,
-    // watch,
-    // formState: { errors },
-  } = useForm();
-  // const onSubmit = (data) => {
-  //   console.log(data);
-  // }; // your form submit function which will invoke after successful validation
+  const { register, handleSubmit } = useForm();
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
 
-  // console.log(watch("example")); // you can watch individual input by pass the name of the input
+  // const onSubmit = (e) => {
+  //   e.preventDefault();
+  //   const userData = {
+  //     name: user.name,
+  //     email: user.email,
+  //     password: user.password,
+  //   };
+  //   axios
+  //     .post("http://localhost:3000/api/register", userData)
+  //     .then((response) => {
+  //       console.log(response)
+  //       // console.log(response.status);
+  //       // console.log(response.data.token);
+  //     });
+  // };
+
   return (
-    <form
-      onSubmit=""
-      className="w-full mx-auto bg-gray-900 p-8 px-8 rounded-1g"
-      id="login"
-      method="get"
-    >
-      <img className="w-20 mx-auto pb-5" src={logo} alt="logo" />
-      <h2 className="text-4xl text-white font-bold text-center">REGISTER</h2>
-      <div className="flex flex-col text-gray-400 py-2">
-        <UserCircleIcon className="h-5 w-5 text-gray-500" />
-        <input
-          className="rounded-1g bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:gray-800 focus:outline-none"
-          type="text"
-          name="name"
-          id="name"
-          placeholder="Name"
-          {...register("name", {
-            required: true,
-          })}
-        ></input>
-      </div>
-      <div className="flex flex-col text-gray-400 py-2">
-        <UserCircleIcon className="h-5 w-5 text-gray-500" />
-        <input
-          className="rounded-1g bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:gray-800 focus:outline-none"
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Email Address"
-          {...register("email", {
-            required: true,
-          })}
-        ></input>
-      </div>
-      <div className="flex flex-col text-gray-400 py-2">
-        <LockClosedIcon className="h-5 w-5 text-gray-500" />
-        <input
-          className="rounded-1g bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:gray-800 focus:outline-none"
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Password"
-          {...register("password", {
-            required: true,
-          })}
-        ></input>
-      </div>
-      <div className="flex flex-col text-gray-400 py-2">
-        <LockClosedIcon className="h-5 w-5 text-gray-500" />
-        <input
-          className="rounded-1g bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:gray-800 focus:outline-none"
-          type="password"
-          name="password"
-          id="confirmPassword"
-          placeholder="Confirm Password"
-          {...register("confirmPassword", {
-            required: true,
-          })}
-        ></input>
-      </div>
-      <Button
-        css="w-full my-5 py-2 bg-teal-500 shadow-lg shadow-teal-500/50"
-        type="submit"
-        name="signIn"
-        id="signIn"
-        description="Sign In"
-      />
-      <nav>
-        <Link to="/login" className="flex flex-col text-gray-400 py-2">
-          Registered? Login here
-        </Link>
-      </nav>
-    </form>
+    <div className="mx-auto max-w-6xl bg-gray-200 py-20 px-12 lg:px-24 shadow-xl mb-24">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div>
+          <label htmlFor="name">Full Name</label>
+          <input {...register("name")} />
+        </div>
+
+        <div>
+          <label htmlFor="email">Email</label>
+          <input {...register("email")} type="email" />
+        </div>
+
+        <div>
+          <label htmlFor="password">Password</label>
+          <input {...register("password")} type="password" />
+        </div>
+
+        <div>
+          <label htmlFor="confirmPassword">Confirm Password</label>
+          <input {...register("confirmPassword")} type="password" />
+        </div>
+
+        <input type="submit" />
+      </form>
+    </div>
   );
 }
