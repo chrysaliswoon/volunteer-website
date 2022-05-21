@@ -1,8 +1,7 @@
-import NavigationBar from "../../components/navigation/navbar";
-import Footer from "../../components/navigation/footer";
-import volunteerImg from "../../assets/images/volunteer.jpg"
-import PrimaryItems from "../../components/navigation/navbarPrimary";
-import SecondaryItems from "../../components/navigation/navbarSecondary";
+import NavigationBar from "../../../../frontend/src/components/navigation/navbar";
+import Footer from "../../../../frontend/src/components/navigation/footer";
+import PrimaryItems from "../../../../frontend/src/components/navigation/navbarPrimary";
+import SecondaryItems from "../../../../frontend/src/components/navigation/navbarSecondary";
 
 export default function AboutPage() {
     return (
@@ -17,11 +16,6 @@ export default function AboutPage() {
         </header>
         <div className="justify-between">
           <main className="md:container md:mx-auto">
-            <img
-              className="w-full h-full object-cover"
-              src={volunteerImg}
-              alt=""
-            />
             <h1 className="text-xl py-10 items-center">About Us</h1>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
