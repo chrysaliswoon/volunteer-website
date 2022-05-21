@@ -3,7 +3,7 @@ import Footer from "../../components/layout/footer";
 import Header from "../../components/forms/formComponents/Header";
 import Login from "../../components/forms/formComponents/Login";
 
-export default function NewLoginPage() {
+export default function LoginPage() {
   return (
     <div>
       <header>
