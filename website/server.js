@@ -19,7 +19,9 @@ const path = require("path");
 app.use(bodyParser.json()); // Parse the JSON body from the HTTP request
 app.use("/api/login", userLogin);
 app.use("/api/register", userRegister);
-app.use(express.static("./client/build"));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("./client/build"));
+}
 
 //? Routes
 app.get("/*", (req, res) => {
