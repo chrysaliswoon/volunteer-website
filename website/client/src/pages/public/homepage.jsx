@@ -5,6 +5,7 @@ import TableBody from "../../components/table/tableBody";
 import Footer from "../../components/navigation/footer";
 import PrimaryItems from "../../components/navigation/navbarPrimary";
 import SecondaryItems from "../../components/navigation/navbarSecondary";
+import HomepageHero from "../../components/hero/homepage";
 
 export default function HomePage() {
   return (
@@ -18,7 +19,7 @@ export default function HomePage() {
         />
       </header>
       <main className="mb-auto h-10 md:container md:mx-auto">
-        <Carousel />
+        <HomepageHero />
         <Table
           Header1="Event"
           Header2="Date"
