@@ -19,11 +19,11 @@ const path = require("path");
 app.use(bodyParser.json()); // Parse the JSON body from the HTTP request
 app.use("/api/login", userLogin);
 app.use("/api/register", userRegister);
-app.use(express.static("./client/build"));
+app.use(express.static("./frontend/dist"));
 
 //? Routes
 app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname, "./frontend/dist/index.html"));
 });
 
 //? PORT Connection
