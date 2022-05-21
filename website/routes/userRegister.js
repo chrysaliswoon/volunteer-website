@@ -14,10 +14,12 @@ register.post("/", async (req, res) => {
   const { name, email } = data;
   data.password = bcrypt.hashSync(data.password, saltRounds);
 
-  await prisma.volunteer.create({
+  const newUser = await prisma.volunteer.create({
     data,
   });
-  prisma.$disconnect();
+  delete newUser.password;
+  res.json(newUser);
+  // prisma.$disconnect();
 });
 
 module.exports = register;
