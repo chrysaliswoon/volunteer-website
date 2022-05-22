@@ -1,6 +1,6 @@
-import Header from "../../components/forms/formComponents/Header";
-import Signup from "../../components/forms/formComponents/Register";
 import NavigationBar from "../../components/navigation/navbar";
+import Header from "../../components/forms/components/header";
+import Register from "../../components/forms/components/register";
 import Footer from "../../components/layout/footer";
 
 export default function RegisterPage() {
@@ -15,9 +15,9 @@ export default function RegisterPage() {
             heading="Signup to create an account"
             paragraph="Already have an account? "
             linkName="Login"
-            linkUrl="/"
+            linkUrl="/login"
           />
-          <Signup />
+          <Register />
         </main>
       </div>
       <div>

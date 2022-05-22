@@ -1,7 +1,8 @@
+
 import NavigationBar from "../../components/navigation/navbar";
+import Header from "../../components/forms/components/header";
+import Login from "../../components/forms/components/login";
 import Footer from "../../components/layout/footer";
-import Header from "../../components/forms/formComponents/Header";
-import Login from "../../components/forms/formComponents/Login";
 
 export default function LoginPage() {
   return (
@@ -15,7 +16,7 @@ export default function LoginPage() {
             heading="Login to your account"
             paragraph="Don't have an account yet? "
             linkName="Signup"
-            linkUrl="/signup"
+            linkUrl="/register"
           />
           <Login />
         </main>
