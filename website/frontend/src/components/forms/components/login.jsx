@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { loginFields } from "../formConstants/formFields";
-import FormAction from "./FormAction";
-import FormExtra from "./FormExtra";
-import Input from "./Input";
+import { loginFields } from "../constants/formFields";
+import Input from "./input";
 
 const fields = loginFields;
 let fieldsState = {};
@@ -14,17 +12,8 @@ export default function Login() {
   const handleChange = (e) => {
     setLoginState({ ...loginState, [e.target.id]: e.target.value });
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    authenticateUser();
-  };
-
-  //Handle Login API Integration here
-  const authenticateUser = () => {};
-
   return (
-    <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+    <form className="mt-8 space-y-6">
       <div className="-space-y-px">
         {fields.map((field) => (
           <Input
@@ -41,9 +30,6 @@ export default function Login() {
           />
         ))}
       </div>
-
-      <FormExtra />
-      <FormAction handleSubmit={handleSubmit} text="Login" />
     </form>
   );
 }
