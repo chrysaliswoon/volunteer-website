@@ -16,8 +16,8 @@ export default function LoginPage() {
             paragraph="Don't have an account yet? "
             linkName="Signup"
             linkUrl="/signup"
-                  />
-                  <Login />
+          />
+          <Login />
         </main>
       </div>
       <div>
