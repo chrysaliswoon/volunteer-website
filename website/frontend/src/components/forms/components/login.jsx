@@ -3,7 +3,6 @@ import { loginFields } from "../constants/formFields";
 import Input from "./input";
 import FormAction from "./formAction";
 import FormExtra from "./formExtra";
-import { BACKEND } from "../../../utils/utils";
 
 const fields = loginFields;
 let fieldsState = {};
@@ -23,7 +22,7 @@ export default function Login() {
 
   //? Login API Integration
   const authenticateUser = () => {
-    const URL = BACKEND + "login";
+    const URL = "http://localhost:3300/login";
     fetch(URL, {
       method: "POST",
       headers: {

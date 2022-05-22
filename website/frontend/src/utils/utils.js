@@ -1,1 +1,1 @@
-export const BACKEND = process.env.REACT_APP_BACKEND ?? "http://localhost:3300/api/"
+export const BACKEND =process.env.REACT_APP_BACKEND ?? "http://localhost:3300/";
