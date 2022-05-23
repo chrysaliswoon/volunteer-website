@@ -17,10 +17,7 @@ const path = require("path");
 const cors = require("cors");
 
 //? Middleware
-app.use(bodyParser.json()); // Parse the JSON body from the HTTP request
-app.use("/api/login", userLogin);
-app.use("/api/register", userRegister);
-app.use(express.static("./frontend/dist"));
+//? NOTE: CORS needs to be placed before the routes in order for it to work
 app.use(
   cors({
     credentials: true,
@@ -32,6 +29,10 @@ app.use(
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   })
 );
+app.use(bodyParser.json()); // Parse the JSON body from the HTTP request
+app.use("/api/login", userLogin);
+app.use("/api/register", userRegister);
+app.use(express.static("./frontend/dist"));
 
 //? Routes
 app.get("/*", (req, res) => {
