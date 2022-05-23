@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function NavigationBar() {
   return (
     <div className="navbar bg-base-100">
@@ -24,11 +26,11 @@ export default function NavigationBar() {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Item 1</a>
+              <a>Events</a>
             </li>
             <li tabIndex="0">
               <a className="justify-between">
-                Parent
+                Courses
                 <svg
                   className="fill-current"
                   xmlns="http://www.w3.org/2000/svg"
@@ -49,20 +51,20 @@ export default function NavigationBar() {
               </ul>
             </li>
             <li>
-              <a>Item 3</a>
+              <a>Dashboard</a>
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <a className="btn btn-ghost normal-case text-xl">ZHYN</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
           <li>
-            <a>Item 1</a>
+            <a>Events</a>
           </li>
           <li tabIndex="0">
             <a>
-              Parent
+              Courses
               <svg
                 className="fill-current"
                 xmlns="http://www.w3.org/2000/svg"
@@ -83,12 +85,12 @@ export default function NavigationBar() {
             </ul>
           </li>
           <li>
-            <a>Item 3</a>
+            <a>Dashboard</a>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Get started</a>
+        <a className="btn"><Link to="/login">Log In</Link></a>
       </div>
     </div>
   );

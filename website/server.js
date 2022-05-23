@@ -14,12 +14,24 @@ const saltRounds = 10;
 const userLogin = require("./routes/userLogin")
 const userRegister = require("./routes/userRegister")
 const path = require("path");
+const cors = require("cors");
 
 //? Middleware
 app.use(bodyParser.json()); // Parse the JSON body from the HTTP request
 app.use("/api/login", userLogin);
 app.use("/api/register", userRegister);
 app.use(express.static("./frontend/dist"));
+app.use(
+  cors({
+    credentials: true,
+    origin: [
+      "http://localhost:3000",
+      "http://localhost:3300",
+      "https://zhyn-website.herokuapp.com/",
+    ],
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  })
+);
 
 //? Routes
 app.get("/*", (req, res) => {

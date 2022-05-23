@@ -1,5 +1,4 @@
 //? Holds all the input fields related constants for the form like placeholder, value, name, field type, etc.
-
 //? Each array contains an object that contains attribues for the input fields
 
 const loginFields = [

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { loginFields } from "../constants/formFields";
 import Input from "./input";
 import FormAction from "./formAction";
@@ -9,11 +10,15 @@ let fieldsState = {};
 fields.forEach((field) => (fieldsState[field.id] = ""));
 
 export default function Login() {
+      let navigate = useNavigate();
+
   const [loginState, setLoginState] = useState(fieldsState);
 
   const handleChange = (e) => {
     setLoginState({ ...loginState, [e.target.id]: e.target.value });
   };
+  // console.log(loginFields)
+  // console.log(fields)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,10 +26,11 @@ export default function Login() {
   };
 
   //? Login API Integration
-  const authenticateUser = () => {
-    const URL = "http://localhost:3300/login";
+  const authenticateUser = async () => {
+    const URL = "http://localhost:3300/api/login";
     fetch(URL, {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -33,12 +39,12 @@ export default function Login() {
       .then((response) => response.json())
       .then((data) => {
         console.log("Successful login: ", data);
+        navigate("/");
       })
-      .catch(error.console.log("Error: ", error));
+      .catch((error) => console.log("Error: ", error));
   };
 
   return (
-    
     <form className="mt-8 space-y-6">
       <div className="-space-y-px">
         {fields.map((field) => (

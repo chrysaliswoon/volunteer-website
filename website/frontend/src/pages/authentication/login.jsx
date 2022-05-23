@@ -1,4 +1,3 @@
-
 import NavigationBar from "../../components/navigation/navbar";
 import Header from "../../components/forms/components/header";
 import Login from "../../components/forms/components/login";
@@ -12,13 +11,17 @@ export default function LoginPage() {
       </header>
       <div>
         <main>
-          <Header
-            heading="Login to your account"
-            paragraph="Don't have an account yet? "
-            linkName="Signup"
-            linkUrl="/register"
-          />
-          <Login />
+          <div className="min-h-full h-screen flex items-center justify-center py-12 px-4 sm:px-6">
+            <div className="max-w-md w-full space-y-8">
+              <Header
+                heading="Login to your account"
+                paragraph="Don't have an account yet? "
+                linkName="Signup"
+                linkUrl="/register"
+              />
+              <Login />
+            </div>
+          </div>
         </main>
       </div>
       <div>

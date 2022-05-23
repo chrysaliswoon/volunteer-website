@@ -11,13 +11,17 @@ export default function RegisterPage() {
       </header>
       <div>
         <main>
-          <Header
-            heading="Signup to create an account"
-            paragraph="Already have an account? "
-            linkName="Login"
-            linkUrl="/login"
-          />
-          <Register />
+          <div className="min-h-full h-screen flex items-center justify-center py-12 px-4 sm:px-6">
+            <div className="max-w-md w-full space-y-8">
+              <Header
+                heading="Signup to create an account"
+                paragraph="Already have an account? "
+                linkName="Login"
+                linkUrl="/login"
+              />
+              <Register />
+            </div>
+          </div>
         </main>
       </div>
       <div>
