@@ -1,7 +1,8 @@
 import NavigationBar from "../../components/navigation/navbar";
-import Header from "../../components/forms/components/header";
-import Register from "../../components/forms/components/register";
+// import Header from "../../components/forms/components/header";
+// import Register from "../../components/forms/components/register";
 import Footer from "../../components/layout/footer";
+import RegisterForm from "../../components/forms/register";
 
 export default function RegisterPage() {
   return (
@@ -13,13 +14,13 @@ export default function RegisterPage() {
         <main>
           <div className="min-h-full h-screen flex items-center justify-center py-12 px-4 sm:px-6">
             <div className="max-w-md w-full space-y-8">
-              <Header
+              {/* <Header
                 heading="Signup to create an account"
                 paragraph="Already have an account? "
                 linkName="Login"
                 linkUrl="/login"
-              />
-              <Register />
+              /> */}
+              <RegisterForm />
             </div>
           </div>
         </main>

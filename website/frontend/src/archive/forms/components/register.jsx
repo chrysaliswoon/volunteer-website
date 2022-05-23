@@ -1,57 +1,60 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { loginFields } from "../constants/formFields";
-import Input from "./input";
-import FormAction from "./formAction";
-import FormExtra from "./formExtra";
+import { registerFields } from "../constants/formFields";
+import FormAction from "./FormAction";
+import Input from "./Input";
 
-const fields = loginFields;
+const fields = registerFields;
 let fieldsState = {};
+
 fields.forEach((field) => (fieldsState[field.id] = ""));
 
-export default function Login() {
-      let navigate = useNavigate();
+export default function Register() {
+  let navigate = useNavigate();
 
-  const [loginState, setLoginState] = useState(fieldsState);
+  const [signupState, setSignupState] = useState(fieldsState);
 
   const handleChange = (e) => {
-    setLoginState({ ...loginState, [e.target.id]: e.target.value });
+    setSignupState({ ...signupState, [e.target.id]: e.target.value });
   };
-  // console.log(loginFields)
-  // console.log(fields)
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    authenticateUser();
+    // console.log(signupState);
+    createAccount();
   };
 
-  //? Login API Integration
-  const authenticateUser = async () => {
-    const URL = "http://localhost:3300/api/login";
+  //? Signup API Integration
+  const createAccount = async () => {
+    const URL = "http://localhost:3300/api/register";
     fetch(URL, {
       method: "POST",
+      mode: "cors",
+      cache: "no-cache",
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(loginFields),
+      body: JSON.stringify(registerFields),
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Successful login: ", data);
+        console.log("User created successfully : ", data);
+        console.log(response.status);
+
         navigate("/");
       })
       .catch((error) => console.log("Error: ", error));
   };
 
   return (
-    <form className="mt-8 space-y-6">
-      <div className="-space-y-px">
+    <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+      <div className="">
         {fields.map((field) => (
           <Input
             key={field.id}
             handleChange={handleChange}
-            value={loginState[field.id]}
+            value={signupState[field.id]}
             labelText={field.labelText}
             labelFor={field.labelFor}
             id={field.id}
@@ -61,9 +64,8 @@ export default function Login() {
             placeholder={field.placeholder}
           />
         ))}
+        <FormAction handleSubmit={handleSubmit} text="Signup" />
       </div>
-      <FormExtra />
-      <FormAction handleSubmit={handleSubmit} text="Login" />
     </form>
   );
 }
