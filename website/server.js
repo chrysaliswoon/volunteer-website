@@ -45,3 +45,4 @@ app.get("/*", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Authentication service started on ${PORT}`);
 });
+

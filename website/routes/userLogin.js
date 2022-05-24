@@ -8,7 +8,6 @@ const login = express.Router();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
-
 //? LOGIN Route
 
 login.post("/", async (req, res) => {
@@ -36,12 +35,18 @@ login.post("/", async (req, res) => {
     { username: user.username, email: user.email },
     accessTokenSecret
   );
-  res.json({
-    accessToken,
+  // res.json({
+  //   accessToken,
+  // });
+  res.cookie("jwt_token", accessToken, {
+    expires: new Date(Date.now() + 16 * 3600000),
+    path: "/",
+    httpOnly: true,
+    // secure: true
   });
-
-  prisma.$disconnect();
-  return { ...user, accessToken };
+  res.status(200).send({ msg: "Logged in successfully!" });
+  // prisma.$disconnect();
+  // return { ...user, accessToken };
 });
 
 module.exports = login;

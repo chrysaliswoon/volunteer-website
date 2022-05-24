@@ -12,17 +12,17 @@ datasource db {
 }
 
 model Events {
-  id                 Int       @id @default(autoincrement())
-  createdAt          DateTime  @default(now())
-  eventTitle         String    @db.VarChar(255)
+  id                 Int      @id @default(autoincrement())
+  createdAt          DateTime @default(now())
+  eventTitle         String   @db.VarChar(255)
   eventDescription   String
   eventStart         DateTime
   eventEnd           DateTime
   volunteersRequired Int
-  eventStatus        String    @db.VarChar(255)
-  published          Boolean   @default(false)
-  creator            Volunteer @relation(fields: [creatorId], references: [id])
-  creatorId          Int
+  eventStatus        String   @db.VarChar(255)
+  published          Boolean  @default(false)
+  creator            Profile  @relation(fields: [creatorId], references: [id])
+  creatorId          Int      @unique
 }
 
 model Profile {
@@ -31,7 +31,9 @@ model Profile {
   member          String    @db.VarChar(255)
   committee       String    @db.VarChar(255)
   volunteerStatus Boolean   @default(true)
+  admin           Boolean   @default(false)
   volunteer       Volunteer @relation(fields: [volunteerId], references: [id])
+  events          Events[]
   volunteerId     Int       @unique
 }
 
@@ -40,6 +42,5 @@ model Volunteer {
   email    String   @unique
   password String
   name     String?
-  events   Events[]
   profile  Profile?
 }
