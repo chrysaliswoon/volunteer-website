@@ -42,7 +42,7 @@ login.post("/", async (req, res) => {
     expires: new Date(Date.now() + 16 * 3600000),
     path: "/",
     httpOnly: true,
-    // secure: true
+    secure: process.env.NODE_ENV === "production"
   });
   res.status(200).send({ msg: "Logged in successfully!" });
   // prisma.$disconnect();
