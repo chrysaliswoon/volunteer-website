@@ -38,6 +38,9 @@ register.post("/", async (req, res) => {
           name: req.body.name,
           email: req.body.email,
           password: req.body.password,
+          profile: {
+            create: { member: "Committee Member", committee: "None" },
+          },
         },
       });
       // Success message upon user creation

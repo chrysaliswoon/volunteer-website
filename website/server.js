@@ -15,6 +15,7 @@ const userLogin = require("./routes/userLogin")
 const userRegister = require("./routes/userRegister")
 const path = require("path");
 const cors = require("cors");
+const eventCreate = require("./routes/events");
 
 //? Middleware
 //? NOTE: CORS needs to be placed before the routes in order for it to work
@@ -32,6 +33,7 @@ app.use(
 app.use(bodyParser.json()); // Parse the JSON body from the HTTP request
 app.use("/api/login", userLogin);
 app.use("/api/register", userRegister);
+app.use("/api/create", eventCreate);
 app.use(express.static("./frontend/dist"));
 
 //? Routes

@@ -2,13 +2,12 @@
 CREATE TABLE "Events" (
     "id" SERIAL NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(3) NOT NULL,
     "eventTitle" VARCHAR(255) NOT NULL,
     "eventDescription" TEXT NOT NULL,
     "eventStart" TIMESTAMP(3) NOT NULL,
     "eventEnd" TIMESTAMP(3) NOT NULL,
     "volunteersRequired" INTEGER NOT NULL,
-    "eventStatus" BOOLEAN NOT NULL DEFAULT true,
+    "eventStatus" VARCHAR(255) NOT NULL,
     "published" BOOLEAN NOT NULL DEFAULT false,
     "creatorId" INTEGER NOT NULL,
 
@@ -19,6 +18,9 @@ CREATE TABLE "Events" (
 CREATE TABLE "Profile" (
     "id" SERIAL NOT NULL,
     "bio" TEXT,
+    "member" VARCHAR(255) NOT NULL,
+    "committee" VARCHAR(255) NOT NULL,
+    "volunteerStatus" BOOLEAN NOT NULL DEFAULT true,
     "volunteerId" INTEGER NOT NULL,
 
     CONSTRAINT "Profile_pkey" PRIMARY KEY ("id")
@@ -28,6 +30,7 @@ CREATE TABLE "Profile" (
 CREATE TABLE "Volunteer" (
     "id" SERIAL NOT NULL,
     "email" TEXT NOT NULL,
+    "password" TEXT NOT NULL,
     "name" TEXT,
 
     CONSTRAINT "Volunteer_pkey" PRIMARY KEY ("id")
