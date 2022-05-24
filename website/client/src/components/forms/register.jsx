@@ -28,7 +28,7 @@ export default function RegisterForm() {
       .then((onSubmit) => onSubmit.json())
       .then((data) => {
         console.log("Success", data);
-        navigate("/success");
+        navigate("/login");
       })
       .catch((error) => {
         console.log("Error:", error);
