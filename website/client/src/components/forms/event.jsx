@@ -12,7 +12,7 @@ export default function EventForm() {
   } = useForm();
 
   const onSubmit = async (data) => {
-    const URL = "http://localhost:3300/api/create";
+    const URL = "http://localhost:3300/api/event/create";
     console.log(data);
 
     fetch(URL, {

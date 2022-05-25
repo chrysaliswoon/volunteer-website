@@ -4,6 +4,7 @@ CREATE TABLE "Events" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "eventTitle" VARCHAR(255) NOT NULL,
     "eventDescription" TEXT NOT NULL,
+    "eventLocation" TEXT NOT NULL,
     "eventStart" TIMESTAMP(3) NOT NULL,
     "eventEnd" TIMESTAMP(3) NOT NULL,
     "volunteersRequired" INTEGER NOT NULL,

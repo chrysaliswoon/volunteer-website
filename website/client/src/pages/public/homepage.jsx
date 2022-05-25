@@ -1,4 +1,4 @@
-import Table from "../../components/dataDisplay/table";
+import EventTable from "../../components/dataDisplay/events";
 import Footer from "../../components/layout/footer";
 import HeroCard from "../../components/layout/hero";
 import NavigationBar from "../../components/navigation/navbar";
@@ -12,7 +12,7 @@ export default function HomePage() {
       <div>
         <main>
           <HeroCard />
-          <Table />
+          <EventTable />
         </main>
       </div>
       <div>
