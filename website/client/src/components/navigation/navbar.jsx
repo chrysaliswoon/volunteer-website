@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function NavigationBar() {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-neutral text-neutral-content">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -26,7 +26,7 @@ export default function NavigationBar() {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Events</a>
+              <Link to="/">Events</Link>
             </li>
             <li tabIndex="0">
               <a className="justify-between">
@@ -51,7 +51,7 @@ export default function NavigationBar() {
               </ul>
             </li>
             <li>
-            <a><Link to="/dashboard">Dashboard</Link></a>
+              <Link to="/dashboard">Dashboard</Link>
             </li>
           </ul>
         </div>
@@ -60,7 +60,7 @@ export default function NavigationBar() {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
           <li>
-            <a>Events</a>
+            <Link to="/">Events</Link>
           </li>
           <li tabIndex="0">
             <a>
@@ -85,12 +85,16 @@ export default function NavigationBar() {
             </ul>
           </li>
           <li>
-            <a><Link to="/dashboard">Dashboard</Link></a>
+            <a>
+              <Link to="/dashboard">Dashboard</Link>
+            </a>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn"><Link to="/login">Log In</Link></a>
+        <Link to="/login" className="btn">
+          Log In
+        </Link>
       </div>
     </div>
   );
