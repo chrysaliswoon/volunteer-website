@@ -51,7 +51,7 @@ export default function NavigationBar() {
               </ul>
             </li>
             <li>
-              <a>Dashboard</a>
+            <a><Link to="/dashboard">Dashboard</Link></a>
             </li>
           </ul>
         </div>
@@ -85,7 +85,7 @@ export default function NavigationBar() {
             </ul>
           </li>
           <li>
-            <a>Dashboard</a>
+            <a><Link to="/dashboard">Dashboard</Link></a>
           </li>
         </ul>
       </div>

@@ -7,6 +7,7 @@ import LoginPage from "./pages/authentication/login";
 import RegisterPage from "./pages/authentication/register";
 import Error from "./pages/error/error";
 import HomePage from "./pages/public/homepage";
+import Dashboard from "./pages/private/dashboard";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </BrowserRouter>
     </div>

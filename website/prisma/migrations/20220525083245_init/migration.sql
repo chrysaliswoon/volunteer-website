@@ -21,6 +21,7 @@ CREATE TABLE "Profile" (
     "member" VARCHAR(255) NOT NULL,
     "committee" VARCHAR(255) NOT NULL,
     "volunteerStatus" BOOLEAN NOT NULL DEFAULT true,
+    "admin" BOOLEAN NOT NULL DEFAULT false,
     "volunteerId" INTEGER NOT NULL,
 
     CONSTRAINT "Profile_pkey" PRIMARY KEY ("id")
@@ -37,13 +38,16 @@ CREATE TABLE "Volunteer" (
 );
 
 -- CreateIndex
+CREATE UNIQUE INDEX "Events_creatorId_key" ON "Events"("creatorId");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "Profile_volunteerId_key" ON "Profile"("volunteerId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Volunteer_email_key" ON "Volunteer"("email");
 
 -- AddForeignKey
-ALTER TABLE "Events" ADD CONSTRAINT "Events_creatorId_fkey" FOREIGN KEY ("creatorId") REFERENCES "Volunteer"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Events" ADD CONSTRAINT "Events_creatorId_fkey" FOREIGN KEY ("creatorId") REFERENCES "Profile"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Profile" ADD CONSTRAINT "Profile_volunteerId_fkey" FOREIGN KEY ("volunteerId") REFERENCES "Volunteer"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
