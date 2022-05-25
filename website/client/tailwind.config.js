@@ -1,4 +1,7 @@
 module.exports = {
+  daisyui: {
+    themes: ["garden"],
+  },
   purge: {
     enabled: true,
     content: ["./src/**/*.{js,jsx,ts,tsx}"],
