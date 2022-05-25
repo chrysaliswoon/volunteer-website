@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 export default function EventForm() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -12,7 +12,7 @@ export default function EventForm() {
   } = useForm();
 
   const onSubmit = async (data) => {
-    const URL = "http://localhost:3300/api/register";
+    const URL = "http://localhost:3300/api/create";
     console.log(data);
 
     fetch(URL, {
@@ -42,22 +42,22 @@ export default function EventForm() {
           <div className="-mx-3 md:flex mb-6"></div>
           <div className="-mx-3 md:flex mb-6">
             <div className="md:w-1/2 px-3 mb-6 md:mb-0">
-            <label
-              className="uppercase tracking-wide text-black text-xs font-bold mb-2"
-              htmlFor="description"
-            >
+              <label
+                className="uppercase tracking-wide text-black text-xs font-bold mb-2"
+                htmlFor="description"
+              >
                 Event Title
               </label>
               <input
                 className="w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3"
                 type="text"
-                name="title"
-                id="title"
-                {...register("title", {
+                name="eventTitle"
+                id="eventTitle"
+                {...register("eventTitle", {
                   required: true,
                 })}
               />
-              {errors?.title?.type === "required" && (
+              {errors?.eventTitle?.type === "required" && (
                 <p>This field is required</p>
               )}
             </div>
@@ -65,16 +65,16 @@ export default function EventForm() {
           <div className="-mx-3 md:flex mb-6">
             <label
               className="uppercase tracking-wide text-black text-xs font-bold mb-2"
-              htmlFor="description"
+              htmlFor="eventDescription"
             >
               Event Description
             </label>
             <input
               className="w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3"
               type="text"
-              name="description"
-              id="description"
-              {...register("description", {
+              name="eventDescription"
+              id="eventDescription"
+              {...register("eventDescription", {
                 required: true,
               })}
             />
@@ -82,40 +82,40 @@ export default function EventForm() {
           <div className="-mx-3 md:flex mb-6">
             <label
               className="uppercase tracking-wide text-black text-xs font-bold mb-2"
-              htmlFor="startDateTime"
+              htmlFor="eventStart"
             >
-            Start Date and Time
+              Start Date and Time
             </label>
             <input
               className="w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3"
               type="datetime-local"
-              name="startDateTime"
-              id="startDateTime"
-              {...register("startDateTime", {
+              name="eventStart"
+              id="eventStart"
+              {...register("eventStart", {
                 required: true,
               })}
             />
-            {errors?.startDateTime?.type === "required" && (
+            {errors?.eventStart?.type === "required" && (
               <p>This field is required</p>
             )}
           </div>
           <div className="-mx-3 md:flex mb-6">
             <label
               className="uppercase tracking-wide text-black text-xs font-bold mb-2"
-              htmlFor="endDateTime"
+              htmlFor="eventEnd"
             >
-            End Date and Time
+              End Date and Time
             </label>
             <input
               className="w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3"
               type="datetime-local"
-              name="endDateTime"
-              id="endDateTime"
-              {...register("endDateTime", {
+              name="eventEnd"
+              id="eventEnd"
+              {...register("eventEnd", {
                 required: true,
               })}
             />
-            {errors?.endDateTime?.type === "required" && (
+            {errors?.eventEnd?.type === "required" && (
               <p>This field is required</p>
             )}
           </div>
@@ -124,7 +124,7 @@ export default function EventForm() {
               className="uppercase tracking-wide text-black text-xs font-bold mb-2"
               htmlFor="volunteersRequired"
             >
-            Volunteers Required
+              Volunteers Required
             </label>
             <input
               className="w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3"
@@ -135,19 +135,26 @@ export default function EventForm() {
                 required: true,
               })}
             />
-            {errors?.endDateTime?.type === "required" && (
+            {errors?.volunteersRequired?.type === "required" && (
               <p>This field is required</p>
             )}
           </div>
-          <button
-            css="md:w-full bg-gray-900 text-white font-bold py-2 px-4 border-b-4 hover:border-b-2 border-gray-500 hover:border-gray-100 rounded-full"
-            type="submit"
-            name="submitDraft"
-            id="submitDraft"
-            description="submitDraft"
-          >
-            Save as Draft
-          </button>
+          <div className="-mx-3 md:flex mb-6">
+            <label
+              className="uppercase tracking-wide text-black text-xs font-bold mb-2"
+              htmlFor="eventStatus"
+            >
+              Event Status
+            </label>
+            <select {...register("eventStatus")}>
+              <option value="draft">Draft</option>
+              <option value="published">Published</option>
+              <option value="archived">Archived</option>
+            </select>
+            {errors?.eventStatus?.type === "required" && (
+              <p>This field is required</p>
+            )}
+          </div>
           <button
             css="md:w-full bg-gray-900 text-white font-bold py-2 px-4 border-b-4 hover:border-b-2 border-gray-500 hover:border-gray-100 rounded-full"
             type="submit"

@@ -22,7 +22,7 @@ model Events {
   eventStatus        String   @db.VarChar(255)
   published          Boolean  @default(false)
   creator            Profile  @relation(fields: [creatorId], references: [id])
-  creatorId          Int      @unique
+  creatorId          Int      
 }
 
 model Profile {

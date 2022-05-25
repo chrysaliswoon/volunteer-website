@@ -30,16 +30,23 @@ const eventCreate = express.Router();
 
 
 eventCreate.post("/", async (req, res) => {
+  const startDateStr = req.body.eventStart;
+  const endDateStr = req.body.eventEnd
+  const startDate = new Date(startDateStr);
+  const endDate = new Date(endDateStr)
+  const startDateISO = startDate.toISOString()
+  const endDateISO = endDate.toISOString()
+  
   try {
     const newEvent = await prisma.events.create({
       data: {
         eventTitle: req.body.eventTitle,
         eventDescription: req.body.eventDescription,
-        eventStart: new Date(),
-        eventEnd: new Date(),
-        volunteersRequired: req.body.volunteersRequired,
-        eventStatus: "Active",
-        creatorId: req.body.creatorId,
+        eventStart: startDateISO,
+        eventEnd: endDateISO,
+        volunteersRequired: parseInt(req.body.volunteersRequired),
+        eventStatus: req.body.eventStatus,
+        creatorId: 1, //? Need to change this to detect the current logged in user
       },
     });
     res.status(200).send({ msg: "Event created!" })

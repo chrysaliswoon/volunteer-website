@@ -38,9 +38,6 @@ CREATE TABLE "Volunteer" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Events_creatorId_key" ON "Events"("creatorId");
-
--- CreateIndex
 CREATE UNIQUE INDEX "Profile_volunteerId_key" ON "Profile"("volunteerId");
 
 -- CreateIndex
