@@ -82,6 +82,23 @@ export default function EventForm() {
           <div className="-mx-3 md:flex mb-6">
             <label
               className="uppercase tracking-wide text-black text-xs font-bold mb-2"
+              htmlFor="eventLocation"
+            >
+              Event Location
+            </label>
+            <input
+              className="w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3"
+              type="text"
+              name="eventLocation"
+              id="eventLocation"
+              {...register("eventLocation", {
+                required: true,
+              })}
+            />
+          </div>
+          <div className="-mx-3 md:flex mb-6">
+            <label
+              className="uppercase tracking-wide text-black text-xs font-bold mb-2"
               htmlFor="eventStart"
             >
               Start Date and Time
