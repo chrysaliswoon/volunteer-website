@@ -36,7 +36,7 @@ export default function EventTable() {
                 </div> */}
           <div>
             <div className="font-bold">
-              {format(parseJSON(data.eventStart), "MM/dd/yyyy")}
+              {format(parseJSON(data.eventStart), "MM MMM yyyy")}
             </div>
             <div className="text-sm opacity-50">{data.eventLocation}</div>
           </div>
@@ -55,7 +55,7 @@ export default function EventTable() {
       <table className="table w-full">
         <thead>
           <tr>
-            <th>Date, Time & Location</th>
+            <th>Date & Location</th>
             <th>Event</th>
             <th>Volunteers</th>
             <th></th>
@@ -64,7 +64,7 @@ export default function EventTable() {
         <tbody>{eventDetails}</tbody>
         <tfoot>
           <tr>
-            <th>Date & Time</th>
+            <th>Date & Location</th>
             <th>Event</th>
             <th>Volunteers</th>
             <th></th>

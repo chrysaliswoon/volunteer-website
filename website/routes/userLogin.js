@@ -35,18 +35,12 @@ login.post("/", async (req, res) => {
     { username: user.username, email: user.email, id: user.id },
     accessTokenSecret
   );
-  // res.json({
-  //   accessToken,
-  // });
   res.cookie("jwt_token", accessToken, {
     expires: new Date(Date.now() + 16 * 3600000),
     path: "/",
     httpOnly: true,
-    // secure: process.env.NODE_ENV === "production"
   });
   res.status(200).send({ msg: "Logged in successfully!", accessToken });
-  // prisma.$disconnect();
-  // return { ...user, accessToken };
 });
 
 module.exports = login;

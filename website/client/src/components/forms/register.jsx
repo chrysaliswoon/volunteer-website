@@ -36,33 +36,36 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl bg-gray-200 py-20 px-12 lg:px-24 shadow-xl mb-24">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
-          <div className="-mx-3 md:flex mb-6"></div>
-          <div className="-mx-3 md:flex mb-6">
-            <div className="md:w-1/2 px-3 mb-6 md:mb-0">
-              <label
-                className="uppercase tracking-wide text-black text-xs font-bold mb-2"
-                htmlFor="name"
-              >
-                Name
-              </label>
-              <input
-                className="w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3"
-                type="text"
-                name="name"
-                id="name"
-                {...register("name", {
-                  required: true,
-                })}
-              />
-              {errors?.name?.type === "required" && (
-                <p>This field is required</p>
-              )}
-            </div>
+    <div className="flex justify-center min-h-screen">
+      <div className="container sm:mt-40 mt-24 my-auto max-w-md border-2 border-gray-200 p-3">
+        <div className="text-center my-6">
+          <h1 className="text-3xl font-semibold text-gray-700">Register</h1>
+          <p className="text-gray-500">
+            Join our community of fun and like-minded people!
+          </p>
+        </div>
+        <form className="mb-4" onSubmit={handleSubmit(onSubmit)}>
+          <div className="w-full max-w-xs py-5 m-6">
+            <label
+              className="uppercase tracking-wide text-black text-xs font-bold mb-2"
+              htmlFor="name"
+            >
+              Name
+            </label>
+            <input
+              className="input input-bordered max-w-xs w-full px-3 py-2"
+              type="text"
+              name="name"
+              id="name"
+              {...register("name", {
+                required: true,
+              })}
+            />
+            {errors?.name?.type === "required" && (
+              <p>This field is required</p>
+            )}
           </div>
-          <div className="-mx-3 md:flex mb-6">
+          <div className="w-full max-w-xs py-5 m-6">
             <label
               className="uppercase tracking-wide text-black text-xs font-bold mb-2"
               htmlFor="email"
@@ -70,7 +73,7 @@ export default function RegisterForm() {
               Email
             </label>
             <input
-              className="w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3"
+              className="input input-bordered max-w-xs w-full px-3 py-2"
               type="email"
               name="email"
               id="email"
@@ -79,7 +82,7 @@ export default function RegisterForm() {
               })}
             />
           </div>
-          <div className="-mx-3 md:flex mb-6">
+          <div className="w-full max-w-xs py-5 m-6">
             <label
               className="uppercase tracking-wide text-black text-xs font-bold mb-2"
               htmlFor="password"
@@ -87,7 +90,7 @@ export default function RegisterForm() {
               Password
             </label>
             <input
-              className="w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3"
+              className="input input-bordered max-w-xs w-full px-3 py-2"
               type="password"
               name="password"
               id="password"
@@ -100,7 +103,7 @@ export default function RegisterForm() {
             )}
           </div>
           <button
-            css="md:w-full bg-gray-900 text-white font-bold py-2 px-4 border-b-4 hover:border-b-2 border-gray-500 hover:border-gray-100 rounded-full"
+            className="btn btn-outline btn-primary max-w-xs py-5 m-6"
             type="submit"
             name="submit"
             id="submit"
@@ -108,8 +111,8 @@ export default function RegisterForm() {
           >
             Submit
           </button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 }
