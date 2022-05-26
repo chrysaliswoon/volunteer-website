@@ -28,7 +28,7 @@ export default function EventForm() {
       .then((onSubmit) => onSubmit.json())
       .then((data) => {
         console.log("Success", data);
-        navigate("/login");
+        navigate("/events");
       })
       .catch((error) => {
         console.log("Error:", error);

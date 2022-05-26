@@ -32,7 +32,7 @@ login.post("/", async (req, res) => {
   delete user.password;
 
   const accessToken = jwt.sign(
-    { username: user.username, email: user.email },
+    { username: user.username, email: user.email, id: user.id },
     accessTokenSecret
   );
   // res.json({
@@ -44,7 +44,7 @@ login.post("/", async (req, res) => {
     httpOnly: true,
     // secure: process.env.NODE_ENV === "production"
   });
-  res.status(200).send({ msg: "Logged in successfully!" });
+  res.status(200).send({ msg: "Logged in successfully!", accessToken });
   // prisma.$disconnect();
   // return { ...user, accessToken };
 });

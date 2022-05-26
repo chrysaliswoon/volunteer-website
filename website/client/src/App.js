@@ -8,6 +8,7 @@ import RegisterPage from "./pages/authentication/register";
 import Error from "./pages/error/error";
 import HomePage from "./pages/public/homepage";
 import Dashboard from "./pages/private/dashboard";
+import EventPage from "./pages/public/events";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/events" element={<EventPage />} />
         </Routes>
       </BrowserRouter>
     </div>

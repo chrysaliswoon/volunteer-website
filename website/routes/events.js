@@ -7,27 +7,39 @@ const event = express.Router();
 
 //? CREATE Event Route
 
+function parseJwt (token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+};
+
 event.post("/", async (req, res) => {
   const startDateISO = new Date(req.body.eventStart).toISOString();
   const endDateISO = new Date(req.body.eventEnd).toISOString();
+  // console.log(req.cookies);
+  const userId = parseJwt(req.cookies.jwt_token)
 
-  try {
-    const newEvent = await prisma.events.create({
-      data: {
-        eventTitle: req.body.eventTitle,
-        eventDescription: req.body.eventDescription,
-        eventLocation: req.body.eventLocation,
-        eventStart: startDateISO,
-        eventEnd: endDateISO,
-        volunteersRequired: parseInt(req.body.volunteersRequired),
-        eventStatus: req.body.eventStatus,
-        creatorId: 1, //? Need to change this to detect the current logged in user
-      },
-    });
-    res.status(200).send({ msg: "Event created!" });
-  } catch (error) {
-    res.status(400).send({ msg: error.message });
-  }
+    try {
+      const newEvent = await prisma.events.create({
+        data: {
+          eventTitle: req.body.eventTitle,
+          eventDescription: req.body.eventDescription,
+          eventLocation: req.body.eventLocation,
+          eventStart: startDateISO,
+          eventEnd: endDateISO,
+          volunteersRequired: parseInt(req.body.volunteersRequired),
+          eventStatus: req.body.eventStatus,
+          creatorId: userId.id, //? Need to change this to detect the current logged in user
+        },
+      });
+      res.status(200).send({ msg: "Event created!" });
+    } catch (error) {
+      res.status(400).send({ msg: error.message });
+    }
 });
 
 //? READ Event Route

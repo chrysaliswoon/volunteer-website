@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-// import { format } from "date-fns";
+import { parseJSON, format } from "date-fns";
 
 export default function EventTable() {
   const [table, setTable] = useState([]);
-  // const date = format(new Date(), "MM/dd/yyyy");
-
+  
   useEffect(() => {
     const URL = "http://localhost:3300/api/event";
     return () => {
@@ -36,7 +35,9 @@ export default function EventTable() {
                   </div>
                 </div> */}
           <div>
-            <div className="font-bold">{data.eventStart}</div>
+            <div className="font-bold">
+              {format(parseJSON(data.eventStart), "MM/dd/yyyy")}
+            </div>
             <div className="text-sm opacity-50">{data.eventLocation}</div>
           </div>
         </div>

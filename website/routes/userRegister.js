@@ -39,7 +39,7 @@ register.post("/", async (req, res) => {
           email: req.body.email,
           password: req.body.password,
           profile: {
-            create: { member: "Committee Member", committee: "None" },
+            create: { member: "Member", committee: "None" },
           },
         },
       });

@@ -16,6 +16,7 @@ const userRegister = require("./routes/userRegister")
 const path = require("path");
 const cors = require("cors");
 const event = require("./routes/events");
+const cookieParser = require("cookie-parser");
 
 //? Middleware
 //? NOTE: CORS needs to be placed before the routes in order for it to work
@@ -30,6 +31,7 @@ app.use(
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   })
 );
+app.use(cookieParser());
 app.use(bodyParser.json()); // Parse the JSON body from the HTTP request
 app.use("/api/login", userLogin);
 app.use("/api/register", userRegister);
