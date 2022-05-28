@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react";
 import { parseJSON, format } from "date-fns";
+import { useNavigate, useParams } from "react-router";
 
 export default function EventTable() {
+  const navigate = useNavigate();
   const [table, setTable] = useState([]);
+
+  const handleEventDetails = (id, event) => {
+    navigate(`/events/${id}`);
+  }
   
   useEffect(() => {
     const URL = "http://localhost:3300/api/event";
@@ -45,7 +51,7 @@ export default function EventTable() {
       <td>{data.eventTitle}</td>
       <td>{data.volunteersRequired}</td>
       <th>
-        <button className="btn btn-ghost btn-xs">Learn More</button>
+        <button className="btn btn-ghost btn-xs" onClick={(event) => handleEventDetails(data.id, event)}>Learn More</button>
       </th>
     </tr>
   ));

@@ -17,7 +17,7 @@ function parseJwt (token) {
     return JSON.parse(jsonPayload);
 };
 
-event.post("/", async (req, res) => {
+event.post("/create", async (req, res) => {
   const startDateISO = new Date(req.body.eventStart).toISOString();
   const endDateISO = new Date(req.body.eventEnd).toISOString();
   // console.log(req.cookies);

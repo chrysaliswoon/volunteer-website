@@ -35,7 +35,6 @@ app.use(cookieParser());
 app.use(bodyParser.json()); // Parse the JSON body from the HTTP request
 app.use("/api/login", userLogin);
 app.use("/api/register", userRegister);
-app.use("/api/event/create", event);
 app.use("/api/event", event)
 app.use(express.static("./client/build"));
 

@@ -9,6 +9,7 @@ import Error from "./pages/error/error";
 import HomePage from "./pages/public/homepage";
 import Dashboard from "./pages/private/dashboard";
 import EventPage from "./pages/public/events";
+import UpdateEventPage from "./pages/authentication/eventUpdate";
 
 export default function App() {
   return (
@@ -18,10 +19,12 @@ export default function App() {
         <Routes>
           <Route path="*" element={<Error />} />
           <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/events" element={<EventPage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="register" element={<RegisterPage />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="events" element={<EventPage />} >
+          <Route path="update/:id" element={<UpdateEventPage />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>
