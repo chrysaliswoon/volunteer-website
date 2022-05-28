@@ -1,5 +1,6 @@
 import NavigationBar from "../../components/navigation/navbar";
 import Footer from "../../components/layout/footer";
+import UpdateEventForm from "../../components/forms/eventUpdate";
 
 
 export default function UpdateEventPage() {
@@ -13,6 +14,7 @@ export default function UpdateEventPage() {
           <main>
             <div className="min-h-full h-screen flex items-center justify-center py-12 px-4 sm:px-6">
               <div className="max-w-md w-full space-y-8">
+                  <UpdateEventForm />
               </div>
             </div>
           </main>

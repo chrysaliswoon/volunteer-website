@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router";
 
 export default function UpdateEventForm() {
@@ -12,35 +13,34 @@ export default function UpdateEventForm() {
       formState: { errors },
     } = useForm();
   
-    const handleChange = (event) => {
-      event.preventDefault();
-      setForm({...form, event})
-  
-    }
-  
-    const getCurrentData = () => {
-        const URL = `http://localhost:3300/api/events/${id}`;
-        fetch(URL, {
-        method: "GET",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          setForm(data);
-        })
-        .catch((error) => console.log("Error:", error));
-    };
-  
+    // const handleChange = (event) => {
+    //   event.preventDefault();
+    //   setForm({...form, event})
+    // }
+
     useEffect(() => {
-      getCurrentData();
-    }, []);
+      const URL = `http://localhost:3300/api/event/${id}`;
+      return () => {
+        fetch(URL, {
+          method: "GET",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            setForm(data);
+          })
+          .catch((error) => console.log("Error:", error));
+        };
+    });
+
   
-    const onSubmit = async (event) => {
-        const URL = `http://localhost:3300/api/events/${id}`;
-      const updateTransaction = { form, ...event };
+    const updateEvent = async (event) => {
+      event.preventDefault();
+      const URL = `http://localhost:3300/api/event/${id}`;
+      const updateEvent = { form, ...event };
   
       fetch(URL, {
         method: "PUT",
@@ -48,7 +48,7 @@ export default function UpdateEventForm() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(updateTransaction),
+        body: JSON.stringify(updateEvent),
       })
         .then((res) => res.json())
         .then((data) => {
@@ -59,69 +59,170 @@ export default function UpdateEventForm() {
           console.log("Error:", error);
         });
     };
+
+    const deleteEvent = async (event) => {
+      const URL = `http://localhost:3300/api/event/${id}`;
+      fetch(URL, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      }).then((data) => {
+        console.log("Event has been deleted!", data);
+        navigate("/events");
+
+      })
+      .catch((error) => {
+        console.log("Error:", error);
+      });
+    }
   
     return (
-      <div className="mx-auto max-w-6xl bg-gray-200 py-10 px-12 lg:px-24 shadow-xl mb-24">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div>
-            <label htmlFor="date">Date of Transaction: </label>
+        <form>
+          <div className="w-full max-w-xs py-5">
+            <label
+              className="uppercase tracking-wide text-black text-xs font-bold mb-2"
+              htmlFor="description"
+            >
+              Event Title
+            </label>
             <input
-              type="date"
-              name="date"
-              id="date"
-              defaultValue={form.date}
-              {...register("date")}
+              className="input input-bordered w-full max-w-xs"
+              type="text"
+              name="eventTitle"
+              id="eventTitle"
+              defaultValue={form.eventTitle}
+            />
+            {errors?.eventTitle?.type === "required" && (
+              <p>This field is required</p>
+            )}
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="w-full max-w-xs py-5">
+              <label
+                className="uppercase tracking-wide text-black text-xs font-bold mb-2"
+                htmlFor="eventStart"
+              >
+                Start Date and Time
+              </label>
+              <input
+                className="select select-bordered w-full max-w-xs"
+                type="datetime-local"
+                name="eventStart"
+                id="eventStart"
+                // defaultValue={form.eventStart}
+              />
+              {errors?.eventStart?.type === "required" && (
+                <p>This field is required</p>
+              )}
+            </div>
+            <div className="w-full max-w-xs py-5">
+              <label
+                className="uppercase tracking-wide text-black text-xs font-bold mb-2"
+                htmlFor="eventEnd"
+              >
+                End Date and Time
+              </label>
+              <input
+                className="select select-bordered w-full max-w-xs"
+                type="datetime-local"
+                name="eventEnd"
+                id="eventEnd"
+                // defaultValue={form.eventEnd}
+              />
+              {errors?.eventEnd?.type === "required" && (
+                <p>This field is required</p>
+              )}
+            </div>
+          </div>
+          <div className="w-full max-w-xs py-5">
+            <label
+              className="uppercase tracking-wide text-black text-xs font-bold mb-2"
+              htmlFor="eventLocation"
+            >
+              Event Location
+            </label>
+            <input
+              className="input input-bordered w-full max-w-xs"
+              type="text"
+              name="eventLocation"
+              id="eventLocation"
+              defaultValue={form.eventLocation}
             />
           </div>
-          <div className="my-5">
-            <label htmlFor="amount">Amount: $</label>
+          <div className="w-full max-w-xs py-5">
+            <label
+              className="uppercase tracking-wide text-black text-xs font-bold mb-2"
+              htmlFor="volunteersRequired"
+            >
+              Volunteers Required
+            </label>
             <input
+              className="input input-bordered w-full max-w-xs"
               type="number"
-              step="any"
-              name="amount"
-              id="amount"
-              defaultValue={form.amount}
-              {...register("amount")}
+              name="volunteersRequired"
+              id="volunteersRequired"
+              defaultValue={form.volunteersRequired}
             />
+            {errors?.volunteersRequired?.type === "required" && (
+              <p>This field is required</p>
+            )}
           </div>
-          <div className="my-5">
-            <label htmlFor="sender">Sender (if applicable): </label>
-            <input
+          <div className="w-full max-w-xs py-5">
+            <label
+              className="uppercase tracking-wide text-black text-xs font-bold mb-2"
+              htmlFor="eventDescription"
+            >
+              Event Description
+            </label>
+            <textarea
+              className="textarea textarea-bordered"
               type="text"
-              name="sender"
-              id="sender"
-              defaultValue={form.sender}
-              {...register("sender")}
+              name="eventDescription"
+              id="eventDescription"
+              defaultValue={form.eventDescription}
             />
           </div>
-          <div className="my-5">
-            <label htmlFor="recipient">Recipient (if applicable): </label>
-            <input
-              type="text"
-              name="recipient"
-              id="recipient"
-              defaultValue={form.recipientName}
-              {...register("recipient")}
-            />
+          <div className="w-full max-w-xs py-5">
+            <label
+              className="uppercase tracking-wide text-black text-xs font-bold mb-2"
+              htmlFor="eventStatus"
+            >
+              Event Status
+            </label>
+            <select
+              className="select select-bordered w-full max-w-xs"
+              {...register("eventStatus")}
+            >
+              <option value="draft">Draft</option>
+              <option value="published">Published</option>
+              <option value="archived">Archived</option>
+            </select>
           </div>
-          <div className="my-5">
-            <label htmlFor="transaction">Transaction Details: </label>
-            <input
-              type="text"
-              name="transaction"
-              id="transaction"
-              defaultValue={form.tDetails}
-              {...register("transaction")}
-            />
+          <div className="w-full max-w-xs py-5">
+            <button
+              className="btn btn-outline btn-primary"
+              type="submit"
+              name="updateEvent"
+              id="updateEvent"
+              description="updateEvent"
+              onClick={handleSubmit(updateEvent)}
+            >
+              Update Event
+            </button>
+            
+            <button
+              className="btn btn-outline btn-primary"
+              type="submit"
+              name="deleteEvent"
+              id="deleteEvent"
+              description="deleteEvent"
+              onClick={handleSubmit(deleteEvent)}
+            >
+              Delete Event
+            </button>
           </div>
-          <Button
-            css="md:w-full bg-gray-900 text-white font-bold py-2 px-4 my-5 border-b-4 hover:border-b-2 border-gray-500 hover:border-gray-100 rounded-full"
-            type="submit"
-            name="update"
-            id="update"
-            description="Update"
-          />
         </form>
-      </div>
     );
   }

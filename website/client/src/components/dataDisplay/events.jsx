@@ -7,7 +7,7 @@ export default function EventTable() {
   const [table, setTable] = useState([]);
 
   const handleEventDetails = (id, event) => {
-    navigate(`/events/${id}`);
+    navigate(`/event/${id}`);
   }
   
   useEffect(() => {
@@ -51,7 +51,7 @@ export default function EventTable() {
       <td>{data.eventTitle}</td>
       <td>{data.volunteersRequired}</td>
       <th>
-        <button className="btn btn-ghost btn-xs" onClick={(event) => handleEventDetails(data.id, event)}>Learn More</button>
+        <button className="btn btn-ghost btn-xs" onClick={(event) => handleEventDetails(data.id, data.eventTitle, event)}>Learn More</button>
       </th>
     </tr>
   ));

@@ -56,7 +56,7 @@ event.get("/", async (req, res) => {
 event.get("/:id", async (req, res) => {
   const findEvent = await prisma.events.findUnique({
     where: {
-      id: req.body.id,
+      id: Number(req.params.id),
     },
   });
   res.json(findEvent);
@@ -68,9 +68,9 @@ event.put("/:id", async (req, res) => {
   const startDateISO = new Date(req.body.eventStart).toISOString();
   const endDateISO = new Date(req.body.eventEnd).toISOString();
 
-  const updateEvent = await prisma.events.update({
+  const updateEvent = await prisma.events.updateMany({
     where: {
-      id: req.body.id,
+      id: Number(req.params.id),
     },
     data: {
       eventTitle: req.body.eventTitle,
@@ -82,6 +82,7 @@ event.put("/:id", async (req, res) => {
       eventStatus: req.body.eventStatus,
     },
   });
+  res.status(200).send({ msg: "Event updated!" });
 });
 
 //? DELETE Event Route
@@ -89,7 +90,7 @@ event.put("/:id", async (req, res) => {
 event.delete("/:id", async (req, res) => {
   const deleteEvent = await prisma.events.delete({
     where: {
-      id: req.body.id,
+      id: Number(req.params.id),
     },
   });
   res.status(200).send({ msg: "Event deleted!" });

@@ -22,9 +22,8 @@ export default function App() {
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="events" element={<EventPage />} >
-          <Route path="update/:id" element={<UpdateEventPage />} />
-          </Route>
+          <Route path="events" element={<EventPage />} />
+          <Route path="event/:id" element={<UpdateEventPage />} />
         </Routes>
       </BrowserRouter>
     </div>
