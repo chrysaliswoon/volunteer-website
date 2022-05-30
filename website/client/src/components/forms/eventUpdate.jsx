@@ -12,11 +12,7 @@ export default function UpdateEventForm() {
       handleSubmit,
       formState: { errors },
     } = useForm();
-  
-    // const handleChange = (event) => {
-    //   event.preventDefault();
-    //   setForm({...form, event})
-    // }
+
 
     useEffect(() => {
       const URL = `http://localhost:3300/api/event/${id}`;

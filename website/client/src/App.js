@@ -10,6 +10,8 @@ import HomePage from "./pages/public/homepage";
 import Dashboard from "./pages/private/dashboard";
 import EventPage from "./pages/public/events";
 import UpdateEventPage from "./pages/authentication/eventUpdate";
+import EventDetailsPage from "./pages/public/eventDetails";
+import EventForm from "./components/forms/event";
 
 export default function App() {
   return (
@@ -22,8 +24,13 @@ export default function App() {
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
           <Route path="dashboard" element={<Dashboard />} />
+          <Route
+            path="dashboard/create"
+            element={<Dashboard dashboardContent={<EventForm />} />}
+          />
           <Route path="events" element={<EventPage />} />
-          <Route path="event/:id" element={<UpdateEventPage />} />
+          <Route path="event/update/:id" element={<UpdateEventPage />} />
+          <Route path="event/:id" element={<EventDetailsPage />} />
         </Routes>
       </BrowserRouter>
     </div>
