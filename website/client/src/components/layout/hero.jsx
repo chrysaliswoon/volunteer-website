@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function HeroCard() {
   return (
     <div
@@ -23,7 +25,9 @@ export default function HeroCard() {
           Together, we can help one another lead better lives in our island home.Find the opportunity that strikes a chord to kick start your
             volunteering journey today!{" "}
           </p>
+          <Link to="/events">
           <button className="btn btn-primary">Get Started</button>
+          </Link>
         </div>
       </div>
     </div>

@@ -5,6 +5,8 @@ import { parseJSON, format } from "date-fns";
 export default function EventDetails() {
   let { id } = useParams();
   const [eventDetails, setEventDetails] = useState([]);
+  // console.log(eventDetails)
+  // const parsedStartDate = parseJSON(eventDetails.eventStart)
 
   useEffect(() => {
     const URL = `http://localhost:3300/api/event/${id}`;
@@ -38,7 +40,7 @@ export default function EventDetails() {
       <p className="py-3 text-sm text-gray-700 leading-7">
       {eventDetails.eventDescription}{" "}
       </p>
-      <p className="text-sm text-red-600">Test</p>
+      <p className="text-sm text-red-600">{eventDetails.eventStart}</p>
       <div className="pt-6">
         <div className="flex justify-between w-full items-center text-gray-600 text-sm pl-2 pr-6">
           <div className="flex items-center">
