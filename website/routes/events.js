@@ -65,21 +65,26 @@ event.get("/:id", async (req, res) => {
 //? UPDATE Event Route
 
 event.put("/:id", async (req, res) => {
-  const startDateISO = new Date(req.body.eventStart).toISOString();
-  const endDateISO = new Date(req.body.eventEnd).toISOString();
+  const eventTitle = req.body.form.eventTitle;
+  const eventDescription = req.body.form.eventDescription;
+  const eventLocation = req.body.form.eventLocation;
+  const startDateISO = new Date(req.body.form.eventStart).toISOString();
+  const endDateISO = new Date(req.body.form.eventStart).toISOString();
+  const volunteersRequired = parseInt(req.body.form.volunteersRequired)
+  const eventStatus = req.body.eventStatus
 
   const updateEvent = await prisma.events.updateMany({
     where: {
       id: Number(req.params.id),
     },
     data: {
-      eventTitle: req.body.eventTitle,
-      eventDescription: req.body.eventDescription,
-      eventLocation: req.body.eventLocation,
+      eventTitle: eventTitle,
+      eventDescription: eventDescription,
+      eventLocation: eventLocation,
       eventStart: startDateISO,
       eventEnd: endDateISO,
-      volunteersRequired: parseInt(req.body.volunteersRequired),
-      eventStatus: req.body.eventStatus,
+      volunteersRequired: volunteersRequired,
+      eventStatus: eventStatus,
     },
   });
   res.status(200).send({ msg: "Event updated!" });

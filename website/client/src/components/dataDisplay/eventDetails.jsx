@@ -24,10 +24,11 @@ export default function EventDetails() {
     };
   });
 
+
   return (
     <div className="py-6 border-b border-gray-200">
         <h2 className="text-2xl text-indigo-900 font-bold">{eventDetails.eventTitle}</h2>
-      <div className="relative h-96">
+      <div className="relative h-95">
         <img
           className="absolute inset-0 object-cover object-center w-full h-full"
           src="https://cdn.tuk.dev/assets/components/111220/events/eventsection1.png"
@@ -37,7 +38,7 @@ export default function EventDetails() {
       <p className="py-3 text-sm text-gray-700 leading-7">
       {eventDetails.eventDescription}{" "}
       </p>
-      <p className="text-sm text-red-600">Tuesday, 12th August, 2020</p>
+      <p className="text-sm text-red-600">Test</p>
       <div className="pt-6">
         <div className="flex justify-between w-full items-center text-gray-600 text-sm pl-2 pr-6">
           <div className="flex items-center">

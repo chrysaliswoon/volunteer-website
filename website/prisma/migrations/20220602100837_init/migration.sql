@@ -1,4 +1,15 @@
 -- CreateTable
+CREATE TABLE "Image" (
+    "id" TEXT NOT NULL,
+    "publicId" TEXT NOT NULL,
+    "format" TEXT NOT NULL,
+    "version" TEXT NOT NULL,
+    "eventId" INTEGER NOT NULL,
+
+    CONSTRAINT "Image_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
 CREATE TABLE "Events" (
     "id" SERIAL NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -39,10 +50,16 @@ CREATE TABLE "Volunteer" (
 );
 
 -- CreateIndex
+CREATE UNIQUE INDEX "Image_publicId_key" ON "Image"("publicId");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "Profile_volunteerId_key" ON "Profile"("volunteerId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Volunteer_email_key" ON "Volunteer"("email");
+
+-- AddForeignKey
+ALTER TABLE "Image" ADD CONSTRAINT "Image_eventId_fkey" FOREIGN KEY ("eventId") REFERENCES "Events"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Events" ADD CONSTRAINT "Events_creatorId_fkey" FOREIGN KEY ("creatorId") REFERENCES "Profile"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

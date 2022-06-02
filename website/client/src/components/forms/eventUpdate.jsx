@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router";
+import EventUpdateAlert from "../dataDisplay/alert/eventUpdate";
 
 export default function UpdateEventForm() {
     let { id } = useParams();
     const [form, setForm] = useState([]);
     const navigate = useNavigate();
+    const eventUpdateAlert = "Event updated!"
   
     const {
       register,
@@ -34,7 +36,7 @@ export default function UpdateEventForm() {
 
   
     const updateEvent = async (event) => {
-      event.preventDefault();
+      // event.preventDefault();
       const URL = `http://localhost:3300/api/event/${id}`;
       const updateEvent = { form, ...event };
   
@@ -48,8 +50,11 @@ export default function UpdateEventForm() {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log("Success", data);
-          navigate("/events");
+          if (data.msg == eventUpdateAlert){
+            <EventUpdateAlert />
+            console.log("Success", data);
+            navigate("/events");
+          }
         })
         .catch((error) => {
           console.log("Error:", error);

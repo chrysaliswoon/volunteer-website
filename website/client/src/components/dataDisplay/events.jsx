@@ -32,14 +32,6 @@ export default function EventTable() {
     <tr key={index}>
       <td className="flex items-center space-x-3">
         <div>
-          {/* <div className="avatar">
-                  <div className="w-12 h-12 mask mask-squircle">
-                    <img
-                      src="/tailwind-css-component-profile-2@56w.png"
-                      alt="Avatar Tailwind CSS Component"
-                    />
-                  </div>
-                </div> */}
           <div>
             <div className="font-bold">
               {format(parseJSON(data.eventStart), "MM MMM yyyy")}
