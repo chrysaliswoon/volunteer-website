@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function DashboardCards({imgsrc, imgalt, title, description, button, onClick}) {
   return (
-    <div class="card w-96 bg-base-100 shadow-xl image-full">
+    <div class="card w-full bg-base-100 shadow-xl image-full">
       <figure>
         <img
           src={imgsrc}
