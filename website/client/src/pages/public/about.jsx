@@ -12,7 +12,7 @@ export default function AboutPage() {
           </header>
           <div>
             <main>
-              <div className="min-h-full h-screen flex items-center justify-center py-12 px-4 sm:px-6">
+            <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4">                
                     <AboutSection />
                 </div>
             </main>
