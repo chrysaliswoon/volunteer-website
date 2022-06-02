@@ -11,6 +11,7 @@ import EventPage from "./pages/public/events";
 import UpdateEventPage from "./pages/private/eventUpdate";
 import EventDetailsPage from "./pages/public/eventDetails";
 import EventForm from "./components/forms/event";
+import AboutPage from "./pages/public/about";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Routes>
           <Route path="*" element={<Error />} />
           <Route path="/" element={<HomePage />} />
+          <Route path="about" element={<AboutPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
           <Route path="dashboard" element={<Dashboard />} />
@@ -28,6 +30,8 @@ export default function App() {
           <Route path="events" element={<EventPage />} />
           <Route path="event/update/:id" element={<UpdateEventPage />} />
           <Route path="event/:id" element={<EventDetailsPage />} />
+          <Route path="event/test" element={<EventDetailsPage />} />
+
         </Routes>
     </div>
   );

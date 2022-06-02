@@ -1,8 +1,9 @@
-import NavigationBar from "../../components/navigation/navbar"
-import Footer from "../../components/layout/footer"
-import EventDetails from "../../components/dataDisplay/eventDetails"
+import React from "react";
+import AboutSection from "../../components/layout/about";
+import NavigationBar from "../../components/navigation/navbar";
+import Footer from "../../components/layout/footer";
 
-export default function EventDetailsPage() {
+export default function AboutPage() {
     return (
         <div>
         <div>
@@ -12,7 +13,7 @@ export default function EventDetailsPage() {
           <div>
             <main>
               <div className="min-h-full h-screen flex items-center justify-center py-12 px-4 sm:px-6">
-                    <EventDetails />
+                    <AboutSection />
                 </div>
             </main>
           </div>
@@ -23,5 +24,6 @@ export default function EventDetailsPage() {
           </div>
         </div>
       </div>
-    )
-}
+    );
+};
+
