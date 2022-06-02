@@ -12,27 +12,33 @@ import UpdateEventPage from "./pages/private/eventUpdate";
 import EventDetailsPage from "./pages/public/eventDetails";
 import EventForm from "./components/forms/event";
 import AboutPage from "./pages/public/about";
+import ProfilePage from "./pages/authentication/profile";
+import DashboardContent from "./components/dataDisplay/dashboard/dashboard";
 
 export default function App() {
   return (
     <div className="w-full space-y-8">
-        <Routes>
-          <Route path="*" element={<Error />} />
-          <Route path="/" element={<HomePage />} />
-          <Route path="about" element={<AboutPage />} />
-          <Route path="login" element={<LoginPage />} />
-          <Route path="register" element={<RegisterPage />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route
-            path="dashboard/create"
-            element={<Dashboard dashboardContent={<EventForm />} />}
-          />
-          <Route path="events" element={<EventPage />} />
-          <Route path="event/update/:id" element={<UpdateEventPage />} />
-          <Route path="event/:id" element={<EventDetailsPage />} />
-          <Route path="event/test" element={<EventDetailsPage />} />
-
-        </Routes>
+      <Routes>
+        <Route path="*" element={<Error />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="about" element={<AboutPage />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="register" element={<RegisterPage />} />
+        <Route path="profile" element={<ProfilePage />} />
+        <Route path="dashboard" element={<Dashboard dashboardContent={<DashboardContent/>} />} />
+        <Route
+          path="dashboard/create"
+          element={<Dashboard dashboardContent={<EventForm />} />}
+        />
+        <Route
+          path="dashboard/profile"
+          element={<Dashboard dashboardContent={<ProfilePage />} />}
+        />
+        <Route path="events" element={<EventPage />} />
+        <Route path="event/update/:id" element={<UpdateEventPage />} />
+        <Route path="event/:id" element={<EventDetailsPage />} />
+        <Route path="event/test" element={<EventDetailsPage />} />
+      </Routes>
     </div>
   );
 }
