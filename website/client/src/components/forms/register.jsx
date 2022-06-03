@@ -1,8 +1,13 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 export default function RegisterForm() {
+  const success = "User created successfully!";
+  const existingUser = "You have an existing account with us";
+  const RegisterAlert = withReactContent(Swal);
   let navigate = useNavigate();
 
   const {
@@ -27,8 +32,20 @@ export default function RegisterForm() {
     })
       .then((onSubmit) => onSubmit.json())
       .then((data) => {
-        console.log("Success", data);
-        navigate("/login");
+        if (data.msg == existingUser) {
+          RegisterAlert.fire({
+            title: existingUser,
+            footer: "",
+          });
+          navigate("/register");
+        } else {
+          RegisterAlert.fire({
+            title: success,
+            footer: "You may log in now!",
+          });
+          navigate("/login");
+        }
+        // console.log("Success", data);
       })
       .catch((error) => {
         console.log("Error:", error);
