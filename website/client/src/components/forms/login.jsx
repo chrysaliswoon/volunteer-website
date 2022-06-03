@@ -2,23 +2,33 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
 import useLocalStorage from "../hooks/useLocalStorage";
-
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 
 export default function LoginForm() {
+  const mesageNotFound = "User not found";
+  const messageWrongPassword = "Invalid login credentials"
+  const success = "Logged in successfully!"
   const navigate = useNavigate();
   const [token, setToken] = useLocalStorage("token");
-
+  const LoginAlert = withReactContent(Swal);
 
   const {
     register,
-    handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data) => {
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    const user = {
+      email: email,
+      password: password,
+    }
     const URL = "http://localhost:3300/api/login";
-    console.log(data);
+    // console.log(data);
 
     fetch(URL, {
       method: "POST",
@@ -28,13 +38,31 @@ export default function LoginForm() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(user),
     })
-      .then((onSubmit) => onSubmit.json())
-      .then((data) => {
+    .then((res) => res.json())
+    .then((data) => {
         // console.log("Success", data);
-        setToken(data.accessToken);
-        navigate("/");
+        if (data.msg == mesageNotFound) {
+          LoginAlert.fire({
+            title: mesageNotFound,
+            footer: "Please register for an account",
+          });
+          setToken(data.accessToken);
+          navigate("/register");
+        } else if (data.msg == messageWrongPassword) {
+          LoginAlert.fire({
+            title: messageWrongPassword,
+            footer: "Please check your login credentials",
+          });
+          navigate("/login");
+        } else {
+          LoginAlert.fire({
+            title: success,
+            footer: "Welcome back!",
+          });
+          navigate("/");
+        }
       })
       .catch((error) => {
         console.log("Error:", error);
@@ -47,7 +75,7 @@ export default function LoginForm() {
           <h1 className="text-3xl font-semibold text-gray-700">Sign in</h1>
           <p className="text-gray-500">Sign in to access your account</p>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleLogin}>
           <div className="w-full max-w-xs py-5 m-6">
             <label
               className="uppercase tracking-wide text-black text-xs font-bold mb-2"
