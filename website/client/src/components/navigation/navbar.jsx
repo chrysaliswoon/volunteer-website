@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function NavigationBar() {
+export default function NavigationBar({signedIn}) {
   return (
     <div className="navbar bg-neutral text-neutral-content">
       <div className="navbar-start">
@@ -48,7 +48,7 @@ export default function NavigationBar() {
           <li>
             <Link to="/about">About</Link>
           </li>
-          <li>
+          <li style={{ display: {signedIn} ? "show" : "none" }}>
             <Link to="/dashboard">Dashboard</Link>
           </li>
         </ul>

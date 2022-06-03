@@ -1,8 +1,11 @@
 import NavigationBar from "../../components/navigation/navbar";
 import Footer from "../../components/layout/footer";
 import LoginForm from "../../components/forms/login";
+import { useState } from "react";
 
 export default function LoginPage() {
+  const [authUser, setAuthUser] = useState(true);
+
   return (
     <div style={{
       backgroundImage:
@@ -13,7 +16,7 @@ export default function LoginPage() {
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",}}>
       <header>
-        <NavigationBar />
+        <NavigationBar signedIn = {authUser}/>
       </header>
       <div>
         <main>
