@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router";
-import EventUpdateAlert from "../dataDisplay/alert/eventUpdate";
 
 export default function UpdateEventForm() {
     let { id } = useParams();
@@ -51,7 +50,6 @@ export default function UpdateEventForm() {
         .then((res) => res.json())
         .then((data) => {
           if (data.msg == eventUpdateAlert){
-            <EventUpdateAlert />
             console.log("Success", data);
             navigate("/events");
           }

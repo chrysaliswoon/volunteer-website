@@ -1,6 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
+
 
 export default function ProfileDetails() {
+  let { id } = useParams();
+  const [Profile, setProfile] = useState([]);
+
+  useEffect(() => {
+    const URL = `http://localhost:3300/api/profile/${id}`;
+    return () => {
+      fetch(URL, {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setProfile(data);
+        })
+        .catch((error) => console.log("Error:", error));
+    };
+  });
+  
   return (
     <div className="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
       <div

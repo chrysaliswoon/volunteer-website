@@ -16,6 +16,7 @@ const userRegister = require("./routes/userRegister")
 const path = require("path");
 const cors = require("cors");
 const event = require("./routes/events");
+const profile = require("./routes/profile")
 const cookieParser = require("cookie-parser");
 
 //? Middleware
@@ -36,6 +37,7 @@ app.use(bodyParser.json()); // Parse the JSON body from the HTTP request
 app.use("/api/login", userLogin);
 app.use("/api/register", userRegister);
 app.use("/api/event", event)
+app.use("/api/profile", profile)
 app.use(express.static("./client/build"));
 
 //? Routes

@@ -10,7 +10,6 @@ const bcrypt = require("bcryptjs");
 const createError = require("http-errors");
 
 //? LOGIN Route
-
 login.post("/", async (req, res) => {
   try {
     const authUser = await prisma.volunteer.findUnique({
@@ -40,6 +39,8 @@ login.post("/", async (req, res) => {
   } catch (error) {
     res.status(400).send({ msg: error.message });
   }
+
+
 
   // const data = req.body;
   // const { email, password } = data;   // Read email from request body
