@@ -42,13 +42,12 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="flex justify-center min-h-screen">
-      <div className="container sm:mt-40 mt-24 my-auto max-w-md border-2 border-gray-200 p-3">
+      <div>
         <div className="text-center my-6">
           <h1 className="text-3xl font-semibold text-gray-700">Sign in</h1>
           <p className="text-gray-500">Sign in to access your account</p>
         </div>
-        <form className="mb-4" onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="w-full max-w-xs py-5 m-6">
             <label
               className="uppercase tracking-wide text-black text-xs font-bold mb-2"
@@ -90,7 +89,7 @@ export default function LoginForm() {
             )}
           </div>
           <button
-            className="btn btn-outline btn-primary max-w-xs py-5 m-6"
+            className="btn btn-outline btn-primary items-center w-full py-5 m-6"
             type="submit"
             name="submit"
             id="submit"
@@ -107,6 +106,5 @@ export default function LoginForm() {
           </p>
         </form>
       </div>
-    </div>
   );
 }
